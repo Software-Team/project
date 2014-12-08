@@ -1,0 +1,98 @@
+﻿body
+{
+	background-image:url(../img/bg.jpg);
+	background-repeat: repeat;
+}
+	
+#main {
+	 position: absolute;
+	 height: auto;
+	 width: auto;
+	 border: 1px solid #FF0000;
+}
+#right {
+	position:absolute;
+	left:800px;
+	top: 20px;
+	width: 531px;
+	height: 559px;
+    background-image:url(../img/main.jpg);
+	background-repeat: no-repeat;
+}
+#left {
+	position:absolute;
+	left:27px;
+	top: 40px;
+}
+#title
+{
+	position:absolute;
+	left:40px;
+	top: 80px;
+	text-align: center;
+	height: 44px;
+	width: 380px;
+}
+#fun1
+{
+	position:absolute;
+	left:176px;
+	top:54px;
+	text-align: center;
+	height: 44px;
+	width: 180px;
+}
+#fun2
+{
+	position:absolute;
+	left:176px;
+	top: 182px;
+	text-align: center;
+	height: 44px;
+	width: 180px;
+}
+#fun3
+{
+	position:absolute;
+	left:176px;
+	top: 311px;
+	text-align: center;
+	height: 44px;
+	width: 180px;
+}
+#fun4
+{
+	position:absolute;
+	left:176px;
+	top: 440px;
+	text-align: center;
+	height: 44px;
+	width: 180px;
+}
+h1
+{
+	color: #666666;
+	font-size: 2.5em;
+	font-weight: normal;
+	font-family: "华文楷体";
+	-webkit-text-stroke: 1px;
+	letter-spacing: 1px；
+}
+.hwj{
+	color: #000000;
+	font-size: 40px;
+	font-weight: normal;
+	font-family: "华文楷体";
+	-webkit-text-stroke: 1px;
+	letter-spacing: 1px;
+	text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;；
+}
+.hwj:hover
+{
+    color: #f1ebe5;
+    text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #000;
+}
+a
+{
+     text-decoration:none;
+}
