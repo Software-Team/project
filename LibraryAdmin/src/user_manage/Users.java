@@ -363,7 +363,8 @@ class UserDetail
 	public void setUserPassword(String userPassword) {
 		UserPassword = userPassword;
 	}
-}	
+}
+//Borrow NoteDetail
 class NoteDetail
 {
 	private String ISBN;
