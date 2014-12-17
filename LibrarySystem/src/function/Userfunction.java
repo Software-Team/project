@@ -67,6 +67,8 @@ public class Userfunction extends ActionSupport
 	private Date Expiration;
 	private int Num; 
 	
+	private String Advice;
+	
 	//主页查询书籍信息
 	public String execute() throws SQLException
 	{	
@@ -170,6 +172,42 @@ public class Userfunction extends ActionSupport
 		}
 	}
 	
+	public String WriteAdvice() throws SQLException, ParseException
+	{
+		String sql;
+		int Advice_Total = 0;
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String Time_temp;
+		Connection connection = Connect();
+		// statement用来执行SQL语句
+		Statement statement = connection.createStatement();
+		Result = statement.executeQuery("SELECT COUNT(*) FROM advice");
+		while(Result.next())
+		{
+			Advice_Total =  Result.getInt("COUNT(*)");
+		}
+		Advice_Total++;
+		Time_temp = date.format(new Date());
+		sql = "insert into advice values ('"+Advice_Total+"','"+User+"','"+Time_temp+"','"+Advice+"')";
+		statement.executeUpdate(sql);
+		Advice = "";
+		//查询数据
+		sql = "select * from users where UserID = '"+User+"'";
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		while(Result.next()) {
+			// 输出结果	
+			UserID = Result.getString("UserID");
+			UserName = Result.getString("UserName");
+			UserPassword = Result.getString("UserPassword");
+		}
+		// 关闭结果集
+		Result.close();
+		// 关闭连接
+		connection.close();	
+		return "write_advice_success";
+	}
+	
 	public String BookReserve() throws SQLException, ParseException
 	{
 		String sql;
@@ -196,7 +234,7 @@ public class Userfunction extends ActionSupport
 			Num = 0;
 			sql = "insert into note"+User+" values ('"+ISBN+"','"+Title+"','"+OutTime_temp+"','"+Expiration_temp+"','"+Num+"')";
 			statement.executeUpdate(sql);
-			sql = "update `libdb`.`books` SET `Status`='借出' WHERE `ISBN`='"+ISBN+"'";
+			sql = "update `bookdb`.`books` SET `Status`='借出' WHERE `ISBN`='"+ISBN+"'";
 			statement.executeUpdate(sql);
 			book_tag = "预借成功！";
 			if(Page == 0)
@@ -278,7 +316,7 @@ public class Userfunction extends ActionSupport
 		{
 			String Expiration_temp;
 			Expiration_temp = date.format(new Date(Expiration.getTime() + 30 * 24 * 60 * 60 * 1000L));
-			sql = "update `libdb`.`note"+User+"` SET `Num`='1',`Expiration`='"+Expiration_temp+"' WHERE `ISBN`='"+ISBN+"'";
+			sql = "update `bookdb`.`note"+User+"` SET `Num`='1',`Expiration`='"+Expiration_temp+"' WHERE `ISBN`='"+ISBN+"'";
 			statement.executeUpdate(sql);
 			book_tag = "续借成功！";
 			
@@ -395,7 +433,7 @@ public class Userfunction extends ActionSupport
 			// 加载驱动程序
 			Class.forName("com.mysql.jdbc.Driver");
 			// URL指向要访问的数据库名test
-			String url = "jdbc:mysql://localhost:3306/libdb";	
+			String url = "jdbc:mysql://localhost:3306/bookdb";	
 			// MySQL配置时的用户名
 			String user = "root";
 			// MySQL配置时的密码
@@ -868,6 +906,14 @@ public class Userfunction extends ActionSupport
 
 	public void setRegisterDate(String registerDate) {
 		RegisterDate = registerDate;
+	}
+	
+	public String getAdvice() {
+		return Advice;
+	}
+
+	public void setAdvice(String advice) {
+		Advice = advice;
 	}
 
 

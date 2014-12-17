@@ -130,5 +130,9 @@
 			<result name="book_Love_success">/user_note.jsp</result>
 		</action>
 		
+		<action name="write_advice" class="function.Userfunction" method = "WriteAdvice">
+			<result name="write_advice_success">/user_data_alter.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

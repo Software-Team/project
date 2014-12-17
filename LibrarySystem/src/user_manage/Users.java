@@ -262,7 +262,7 @@ public class Users extends ActionSupport
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
-		sql = "update `libdb`.`books` SET `Status`='在馆' WHERE `ISBN`='"+ISBN+"'";
+		sql = "update `bookdb`.`books` SET `Status`='在馆' WHERE `ISBN`='"+ISBN+"'";
 		statement.executeUpdate(sql);
 		
 		sql = "delete from note"+UserID+" where ISBN='"+ISBN+"'";
@@ -278,7 +278,7 @@ public class Users extends ActionSupport
 			// 加载驱动程序
 			Class.forName("com.mysql.jdbc.Driver");
 			// URL指向要访问的数据库名test
-			String url = "jdbc:mysql://localhost:3306/libdb";	
+			String url = "jdbc:mysql://localhost:3306/bookdb";	
 			// MySQL配置时的用户名
 			String user = "root";
 			// MySQL配置时的密码

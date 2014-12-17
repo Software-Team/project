@@ -3,6 +3,7 @@
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -41,7 +42,7 @@ public class Function extends ActionSupport
 	private String AuthorName = "";
 	private String AuthorCountry;
 	private String Publisher;
-	private String PublishDate;
+	private int PublishDate;
 	
 
 	private String RegisterDate;
@@ -149,6 +150,7 @@ public class Function extends ActionSupport
 	{
 		String sql;
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar calendar = Calendar.getInstance();
 		book_tag = "书籍列表";
 		Connection connection = Connect();
 		// statement用来执行SQL语句
@@ -166,7 +168,8 @@ public class Function extends ActionSupport
 			AuthorName = Result.getString("AuthorName");
 			AuthorCountry = Result.getString("AuthorCountry");
 			Publisher = Result.getString("Publisher");
-			PublishDate = df.format(Result.getDate("PublishDate"));
+			calendar.setTime(Result.getDate("PublishDate"));
+			PublishDate = calendar.get(Calendar.YEAR);
 			RegisterDate = df.format(Result.getDate("RegisterDate"));
 			Type = Result.getString("Type");
 			PageNum = Result.getInt("PageNum");
@@ -214,7 +217,7 @@ public class Function extends ActionSupport
 			// 加载驱动程序
 			Class.forName("com.mysql.jdbc.Driver");
 			// URL指向要访问的数据库名test
-			String url = "jdbc:mysql://localhost:3306/libdb";	
+			String url = "jdbc:mysql://localhost:3306/bookdb";	
 			// MySQL配置时的用户名
 			String user = "root";
 			// MySQL配置时的密码
@@ -244,7 +247,7 @@ public class Function extends ActionSupport
 	public void Refresh(String sql,Connection connection,Statement statement) throws SQLException
 	{
 		bookdetails = new ArrayList<BookDetail>();	
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar calendar = Calendar.getInstance();
 		Result = statement.executeQuery("SELECT COUNT(*) FROM books");
 		while(Result.next())
 		{
@@ -266,14 +269,10 @@ public class Function extends ActionSupport
 			bookdetail.setISBN(Result.getString("ISBN"));
 			bookdetail.setTitle(Result.getString("Title"));
 			bookdetail.setAuthorName(Result.getString("AuthorName"));
-			bookdetail.setAuthorCountry(Result.getString("AuthorCountry"));
 			bookdetail.setPublisher(Result.getString("Publisher"));
-			bookdetail.setPublishDate(df.format(Result.getDate("PublishDate")));
-			bookdetail.setRegisterDate(df.format(Result.getDate("RegisterDate")));
+			calendar.setTime(Result.getDate("PublishDate"));
+			bookdetail.setPublishDate(calendar.get(Calendar.YEAR));
 			bookdetail.setType(Result.getString("Type"));
-			bookdetail.setPageNum(Result.getInt("PageNum"));
-			bookdetail.setCallNum(Result.getString("CallNum"));
-			bookdetail.setPrice(Result.getFloat("Price"));
 			bookdetail.setStatus(Result.getString("Status"));
 			bookdetail.setPlace(Result.getString("Place"));
 			bookdetail.setLove(Result.getInt("Love"));
@@ -434,11 +433,11 @@ public class Function extends ActionSupport
 		Publisher = publisher;
 	}
 	
-	public String getPublishDate() {
+	public int getPublishDate() {
 		return PublishDate;
 	}
 
-	public void setPublishDate(String publishDate) {
+	public void setPublishDate(int publishDate) {
 		PublishDate = publishDate;
 	}
 
@@ -564,9 +563,7 @@ class BookDetail
 	private String AuthorName = "";
 	private String AuthorCountry;
 	private String Publisher;
-//	private Date PublishDate;
-//	private Date RegisterDate;
-	private String PublishDate;
+	private int PublishDate;
 	private String RegisterDate;
 	private String Type;
 	private String CallNum;
@@ -643,10 +640,10 @@ class BookDetail
 	public void setPlace(String place) {
 		Place = place;
 	}
-	public String getPublishDate() {
+	public int getPublishDate() {
 		return PublishDate;
 	}
-	public void setPublishDate(String publishDate) {
+	public void setPublishDate(int publishDate) {
 		PublishDate = publishDate;
 	}
 	public String getRegisterDate() {

@@ -32,6 +32,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			User_Data.style.display='none';
 		   	User_Alter.style.display='block';
 		}
+		function warn(str)
+		{
+			if (str=="")
+			{
+				alert("内容不能为空，请输入您的意见！");
+				return false;
+			}
+			else
+			{
+				alert("提交成功，感谢您提出的宝贵意见！");
+				return ture;
+			}
+		}
 	</script>
     
   </head>
@@ -57,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <td align="center"><s:property value="UserID" /></td>
 		        <td align="center"><s:property value="UserName"/></td>
 		        <td align="center"><s:property value="UserPassword"/></td>
-		        <td align="center"><a href="javascript:void(0);" onclick="Show_UserAlter(User_Data,User_Alter)">修改</a></td>
+		        <td align="center"><a href="javascript:void(0);" onclick="Show_UserAlter(User_Data,User_Alter)" style="text-decoration:none;">修改</a></td>
 		    </tr>    
 	    </table>
     </div>
@@ -71,6 +84,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<s:submit value="确认修改" align="right"/>
 		</s:form>
 	</div>
+	<br/>
+	<br/>
+	<p>意见反馈</p>
+	<s:form action="write_advice">
+		<s:textarea id="hwj" name="Advice" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:300px;height:77"/>
+		<s:submit value="提交意见" align="right" onclick = "return warn(document.getElementById('hwj').value)"/>
+	</s:form>
     </center>
   </body>
 </html>

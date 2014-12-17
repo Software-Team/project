@@ -63,7 +63,7 @@ public class Login extends ActionSupport
 			// 加载驱动程序
 			Class.forName("com.mysql.jdbc.Driver");
 			// URL指向要访问的数据库名test
-			String url = "jdbc:mysql://localhost:3306/libdb";	
+			String url = "jdbc:mysql://localhost:3306/bookdb";	
 			// MySQL配置时的用户名
 			String user = "root";
 			// MySQL配置时的密码
