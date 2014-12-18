@@ -30,8 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:830px;
-		top:180px;
+		left:880px;
+		top:110px;
 	}
     </style>
   </head>
@@ -55,54 +55,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	</table>
 	
-	
-		<h3 align="center"><s:property value="user_tag"/></h3>
-	    <table align="center" border="1" style="font-size:18px">
-		    <tr align="center" style="background-color:#CD853F;">
-		    	<td align="center">序号</td>
-		    	<td align="center">用户账号</td>
-		    	<td align="center">反馈时间</td>
-		    	<td align="center">详细信息</td>
-		   	</tr>
-		    <s:iterator value="advicedetails_temp">
-		        <tr align="center">
-		            <td align="center"><s:property value="Num"/></td>
-		            <td align="center"><s:property value="UserID"/></td>
-		            <td align="center"><s:property value="Time"/></td>
-		            <td align="center"><s:property value="Words"/></td>
-		        </tr>
-		    </s:iterator>
-		    <tr align="right">
-				<td colspan="4">
-					共<s:property value="TotalRow"/>行&nbsp;
-					<a href="<s:url value="user_index.action">
-					<s:param name="searchName" value="searchName"/>
-					<s:param name="searchValue" value="searchValue"/>
-					<s:param name="CurrentPage" value="CurrentPage"/>
-					<s:param name="PagerMethod" value="'first'"/>
-					</s:url>" style="text-decoration:none;">首页</a>
-					<a href="<s:url value="user_index.action">
-					<s:param name="searchName" value="searchName"/>
-					<s:param name="searchValue" value="searchValue"/>
-					<s:param name="CurrentPage" value="CurrentPage"/>
-					<s:param name="PagerMethod" value="'previous'"/>
-					</s:url>" style="text-decoration:none;">上一页</a>
-					第<s:property value="CurrentPage"/>页&nbsp;
-					<a href="<s:url value="user_index.action">
-					<s:param name="searchName" value="searchName"/>
-					<s:param name="searchValue" value="searchValue"/>
-					<s:param name="CurrentPage" value="CurrentPage"/>
-					<s:param name="PagerMethod" value="'next'"/>
-					</s:url>" style="text-decoration:none;">下一页</a>
-					<a href="<s:url value="user_index.action">
-					<s:param name="searchName" value="searchName"/>
-					<s:param name="searchValue" value="searchValue"/>
-					<s:param name="CurrentPage" value="CurrentPage"/>
-					<s:param name="PagerMethod" value="'last'"/>
-					</s:url>" style="text-decoration:none;">尾页</a>
-					共<s:property value="TotalPage"/>页&nbsp;
-				</td>
-			</tr>
-	    </table>
+	<br/>
+	<h3 align="center"><s:property value="user_tag"/></h3>
+    <table align="center" border="1" style="font-size:18px">
+	    <tr align="center" style="background-color:#CD853F;">
+	    	<td align="center" style="word-break:break-all;width:40px">序号</td>
+	    	<td align="center" style="word-break:break-all;width:100px">用户账号</td>
+	    	<td align="center" style="word-break:break-all;width:100px">反馈时间</td>
+	    	<td align="center" style="word-break:break-all;width:250px">详细信息</td>
+	   	</tr>
+	    <s:iterator value="advicedetails_temp">
+	        <tr align="center">
+	            <td align="center" style="word-break:break-all;width:40px"><s:property value="Num"/></td>
+	            <td align="center" style="word-break:break-all;width:100px"><s:property value="UserID"/></td>
+	            <td align="center" style="word-break:break-all;width:100px"><s:property value="Time"/></td>
+	            <td align="center" style="word-break:break-all;width:250px;height:80px;"><s:property value="Words"/></td>
+	        </tr>
+	    </s:iterator>
+	    <tr align="right">
+			<td colspan="4">
+				共<s:property value="TotalRow"/>行&nbsp;
+				<a href="<s:url value="advice_index.action">
+				<s:param name="searchName" value="searchName"/>
+				<s:param name="searchValue" value="searchValue"/>
+				<s:param name="CurrentPage" value="CurrentPage"/>
+				<s:param name="PagerMethod" value="'first'"/>
+				</s:url>" style="text-decoration:none;">首页</a>
+				<a href="<s:url value="advice_index.action">
+				<s:param name="searchName" value="searchName"/>
+				<s:param name="searchValue" value="searchValue"/>
+				<s:param name="CurrentPage" value="CurrentPage"/>
+				<s:param name="PagerMethod" value="'previous'"/>
+				</s:url>" style="text-decoration:none;">上一页</a>
+				第<s:property value="CurrentPage"/>页&nbsp;
+				<a href="<s:url value="advice_index.action">
+				<s:param name="searchName" value="searchName"/>
+				<s:param name="searchValue" value="searchValue"/>
+				<s:param name="CurrentPage" value="CurrentPage"/>
+				<s:param name="PagerMethod" value="'next'"/>
+				</s:url>" style="text-decoration:none;">下一页</a>
+				<a href="<s:url value="advice_index.action">
+				<s:param name="searchName" value="searchName"/>
+				<s:param name="searchValue" value="searchValue"/>
+				<s:param name="CurrentPage" value="CurrentPage"/>
+				<s:param name="PagerMethod" value="'last'"/>
+				</s:url>" style="text-decoration:none;">尾页</a>
+				共<s:property value="TotalPage"/>页&nbsp;
+			</td>
+		</tr>
+    </table>
   </body>
 </html>

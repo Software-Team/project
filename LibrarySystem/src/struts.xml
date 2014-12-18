@@ -134,5 +134,9 @@
 			<result name="write_advice_success">/user_data_alter.jsp</result>
 		</action>
 		
+		<action name="advice_index" class="function.Function" method = "WatchAdvice">
+			<result name="watch_advice_success">/user_advice.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

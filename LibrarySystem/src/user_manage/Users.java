@@ -187,11 +187,6 @@ public class Users extends ActionSupport
 	public void Refresh(String sql,Connection connection,Statement statement) throws SQLException
 	{
 		userdetails = new ArrayList<UserDetail>();
-		Result = statement.executeQuery("SELECT COUNT(*) FROM users");
-		while(Result.next())
-		{
-			User_Total =  Result.getInt("COUNT(*)");
-		}
 		// 执行SQL语句并返回结果集
 		Result = statement.executeQuery(sql);
 		userdetails.clear();
@@ -206,6 +201,7 @@ public class Users extends ActionSupport
 			userdetails.add(userdetail);
 		}
 		TotalRow = userdetails.size();
+		User_Total = TotalRow;
 		TotalPage = TotalRow/PageSize;
 		if((TotalRow%PageSize) != 0)
 			TotalPage++;

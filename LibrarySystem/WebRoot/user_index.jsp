@@ -30,8 +30,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:830px;
-		top:180px;
+		left:475px;
+		top:205px;
+	}
+	#advice
+	{
+		position: absolute;
+		left:800px;
+		top:220px;
 	}
     </style>
      <script type="text/javascript">
@@ -56,6 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <center>
   	<h2>用户管理</h2>
   </center>
+  <a id="advice" href='<s:url action="advice_index"></s:url>' style="text-decoration:none;">查看意见反馈</a>
   <p id="hwj">总计：<s:property value="User_Total"/></p>
   <table align="center">
 	<tr align="center">
@@ -78,9 +85,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</td>
 	</tr>
 	</table>
-	
-	
 		<h3 align="center"><s:property value="user_tag"/></h3>
+		<br/>
 	    <table align="center" border="1" style="font-size:18px">
 		    <tr align="center" style="background-color:#CD853F;">
 		    	<td align="center">账号</td>
@@ -132,6 +138,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 			</tr>
 	    </table>
-	
   </body>
 </html>

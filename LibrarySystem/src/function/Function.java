@@ -223,6 +223,7 @@ public class Function extends ActionSupport
 	public String WatchAdvice() throws SQLException
 	{
 		String sql;
+		PageSize = 3;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
