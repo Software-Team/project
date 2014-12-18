@@ -19,6 +19,8 @@ public class Function extends ActionSupport
 	ArrayList<BookDetail> bookdetails;
 	List<BookDetail> bookdetails_temp;
 	
+	ArrayList<AdviceDetail> advicedetails;
+	List<AdviceDetail> advicedetails_temp;
 	
 	private ResultSet Result;
 	ResultSet Result_temp;
@@ -26,6 +28,9 @@ public class Function extends ActionSupport
 
 	private int Book_Total;
 	private int Book_Remain;
+
+	private int Advice_Total;
+	private int Advice_Remain;
 	
 	
 	private int PageSize = 5;
@@ -43,8 +48,6 @@ public class Function extends ActionSupport
 	private String AuthorCountry;
 	private String Publisher;
 	private int PublishDate;
-	
-
 	private String RegisterDate;
 	private String Type;
 	private String CallNum;
@@ -53,6 +56,13 @@ public class Function extends ActionSupport
 	private String Status;
 	private String Place;
 	private int Love;
+	
+	
+	private int Num;
+	private String UserID;
+	private String Time;
+	private String Words;
+	
 	
 	//主页查询书籍信息
 	public String execute() throws SQLException
@@ -212,6 +222,79 @@ public class Function extends ActionSupport
 	
 	public String WatchAdvice() throws SQLException
 	{
+		String sql;
+		Connection connection = Connect();
+		// statement用来执行SQL语句
+		Statement statement = connection.createStatement();
+		//查询数据
+		advicedetails = new ArrayList<AdviceDetail>();	
+		Result = statement.executeQuery("SELECT COUNT(*) FROM advice");
+		while(Result.next())
+		{
+			Advice_Total =  Result.getInt("COUNT(*)");
+		}
+		sql = "select * from advice order by `Num` desc";
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		advicedetails.clear();
+		while(Result.next()) {
+			// 输出结果
+			AdviceDetail advicedetail = new AdviceDetail();
+			
+			advicedetail.setNum(Result.getInt("Num"));
+			advicedetail.setUserID(Result.getString("UserID"));
+			advicedetail.setTime(Result.getString("Time"));
+			advicedetail.setWords(Result.getString("Words"));
+			advicedetails.add(advicedetail);
+		}
+		TotalRow = advicedetails.size();
+		TotalPage = TotalRow/PageSize;
+		if((TotalRow%PageSize) != 0)
+			TotalPage++;
+		
+		if(PagerMethod.equals("first"))
+		{
+			CurrentPage = 1;
+			if (TotalPage < 2)
+				advicedetails_temp = advicedetails.subList(0,TotalRow);
+			else
+				advicedetails_temp = advicedetails.subList((CurrentPage-1)*PageSize, CurrentPage*PageSize);
+		}
+		else if(PagerMethod.equals("previous"))
+		{
+			if(CurrentPage > 1)
+				CurrentPage--;
+			if (TotalPage < 2)
+				advicedetails_temp = advicedetails.subList(0,TotalRow);
+			else
+				advicedetails_temp = advicedetails.subList((CurrentPage-1)*PageSize, CurrentPage*PageSize);
+		}
+		else if(PagerMethod.equals("next"))
+		{
+			if(CurrentPage < TotalPage)
+				CurrentPage++;
+			if (TotalPage < 2)
+				advicedetails_temp = advicedetails.subList(0,TotalRow);
+			else
+			{
+				if(CurrentPage == TotalPage)
+					advicedetails_temp = advicedetails.subList((CurrentPage-1)*PageSize, TotalRow);
+				else
+					advicedetails_temp = advicedetails.subList((CurrentPage-1)*PageSize, CurrentPage*PageSize);
+			}
+		}
+		else
+		{
+			CurrentPage = TotalPage;
+			if (TotalPage < 2)
+				advicedetails_temp = advicedetails.subList(0,TotalRow);
+			else
+				advicedetails_temp = advicedetails.subList((CurrentPage-1)*PageSize, TotalRow);
+		}	
+		// 关闭结果集
+		Result.close();
+		// 关闭连接
+		connection.close();
 		return "watch_advice_success";
 	}
 	
@@ -558,6 +641,70 @@ public class Function extends ActionSupport
 	public void setPagerMethod(String pagerMethod) {
 		PagerMethod = pagerMethod;
 	}
+	
+	public int getNum() {
+		return Num;
+	}
+
+	public void setNum(int num) {
+		Num = num;
+	}
+
+	public String getUserID() {
+		return UserID;
+	}
+
+	public void setUserID(String userID) {
+		UserID = userID;
+	}
+
+	public String getTime() {
+		return Time;
+	}
+
+	public void setTime(String time) {
+		Time = time;
+	}
+
+	public String getWords() {
+		return Words;
+	}
+
+	public void setWords(String words) {
+		Words = words;
+	}
+	
+	public ArrayList<AdviceDetail> getAdvicedetails() {
+		return advicedetails;
+	}
+
+	public void setAdvicedetails(ArrayList<AdviceDetail> advicedetails) {
+		this.advicedetails = advicedetails;
+	}
+
+	public List<AdviceDetail> getAdvicedetails_temp() {
+		return advicedetails_temp;
+	}
+
+	public void setAdvicedetails_temp(List<AdviceDetail> advicedetails_temp) {
+		this.advicedetails_temp = advicedetails_temp;
+	}
+
+	public int getAdvice_Total() {
+		return Advice_Total;
+	}
+
+	public void setAdvice_Total(int advice_Total) {
+		Advice_Total = advice_Total;
+	}
+
+	public int getAdvice_Remain() {
+		return Advice_Remain;
+	}
+
+	public void setAdvice_Remain(int advice_Remain) {
+		Advice_Remain = advice_Remain;
+	}
 
 }
 
@@ -663,5 +810,35 @@ class BookDetail
 	public void setLove(int love) {
 		Love = love;
 	}
-
+}
+class AdviceDetail
+{
+	private int Num;
+	private String UserID;
+	private String Time;
+	private String Words;
+	public int getNum() {
+		return Num;
+	}
+	public void setNum(int num) {
+		Num = num;
+	}
+	public String getUserID() {
+		return UserID;
+	}
+	public void setUserID(String userID) {
+		UserID = userID;
+	}
+	public String getTime() {
+		return Time;
+	}
+	public void setTime(String time) {
+		Time = time;
+	}
+	public String getWords() {
+		return Words;
+	}
+	public void setWords(String words) {
+		Words = words;
+	}
 }
