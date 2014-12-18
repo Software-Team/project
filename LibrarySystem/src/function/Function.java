@@ -28,7 +28,7 @@ public class Function extends ActionSupport
 	private int Book_Remain;
 	
 	
-	private int PageSize = 8;
+	private int PageSize = 5;
 	private int CurrentPage = 1;
 	private int TotalPage;
 	private int TotalRow;
@@ -208,6 +208,11 @@ public class Function extends ActionSupport
 		sql = "select * from books order by `Love` desc limit 10";
 		Refresh(sql,connection,statement);
 		return "GoodBook_success";
+	}
+	
+	public String WatchAdvice() throws SQLException
+	{
+		return "watch_advice_success";
 	}
 	
 	public Connection Connect()

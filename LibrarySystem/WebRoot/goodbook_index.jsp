@@ -51,13 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<td align="center">ISBN</td>
 		    	<td align="center">书名</td>
 		    	<td align="center">作者</td>
-		    	<td align="center">国籍</td>
 		    	<td align="center">出版社</td>
 		    	<td align="center">出版日期</td>
-		    	<td align="center">上架日期</td>
 		    	<td align="center">类别</td>
 		    	<td align="center">页码</td>
-		    	<td align="center">索取号</td>
 		    	<td align="center">价格</td>
 		    	<td align="center">状态</td>
 		    	<td align="center">馆藏位置</td>
@@ -71,13 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <td align="center"><s:property value="ISBN"/></td>
 		            <td align="center"><a href="goodbook_index.action#mulu<s:property value="#num.count"/>" style="text-decoration:none;"><s:property value="Title"/></a></td>
 		            <td align="center"><s:property value="AuthorName"/></td>
-		            <td align="center"><s:property value="AuthorCountry"/></td>
 		            <td align="center"><s:property value="Publisher"/></td>
 		            <td align="center"><s:property value="PublishDate"/></td>
-		            <td align="center"><s:property value="RegisterDate"/></td>
 		            <td align="center"><s:property value="Type"/></td>
 		            <td align="center"><s:property value="PageNum"/></td>
-		            <td align="center"><s:property value="CallNum"/></td>
 		            <td align="center"><s:property value="Price"/></td>
 		            <td align="center"><s:property value="Status"/></td>
 		            <td align="center"><s:property value="Place"/></td>
