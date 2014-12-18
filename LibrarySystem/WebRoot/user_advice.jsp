@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>用户管理界面</title>
+    <title>意见反馈</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:880px;
+		left:985px;
 		top:110px;
 	}
     </style>
@@ -62,14 +62,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<td align="center" style="word-break:break-all;width:40px">序号</td>
 	    	<td align="center" style="word-break:break-all;width:100px">用户账号</td>
 	    	<td align="center" style="word-break:break-all;width:100px">反馈时间</td>
-	    	<td align="center" style="word-break:break-all;width:250px">详细信息</td>
+	    	<td align="center" style="word-break:break-all;width:450px">意见内容</td>
 	   	</tr>
 	    <s:iterator value="advicedetails_temp">
 	        <tr align="center">
 	            <td align="center" style="word-break:break-all;width:40px"><s:property value="Num"/></td>
 	            <td align="center" style="word-break:break-all;width:100px"><s:property value="UserID"/></td>
 	            <td align="center" style="word-break:break-all;width:100px"><s:property value="Time"/></td>
-	            <td align="center" style="word-break:break-all;width:250px;height:80px;"><s:property value="Words"/></td>
+	            <td align="center" style="word-break:break-all;width:450px;height:60px;"><s:property value="Words"/></td>
 	        </tr>
 	    </s:iterator>
 	    <tr align="right">

@@ -82,7 +82,7 @@ public class Userfunction extends ActionSupport
 		if(AuthorName.equals("")&&searchName.equals("")&&searchValue.equals(""))
 		{
 			book_tag = "新书列表";
-			sql = "select * from books order by `RegisterDate` desc limit 10";
+			sql = "select * from books order by `RegisterDate` desc";
 		}		
 		else
 		{
@@ -238,9 +238,9 @@ public class Userfunction extends ActionSupport
 			statement.executeUpdate(sql);
 			book_tag = "预借成功！";
 			if(Page == 0)
-				sql = "select * from books order by `RegisterDate` desc limit 10";
+				sql = "select * from books order by `RegisterDate` desc";
 			else
-				sql = "select * from books order by `Love` desc limit 10";
+				sql = "select * from books order by `Love` desc";
 			//刷新书籍列表
 			Refresh(sql,connection,statement);
 			return "book_reserve_success";
@@ -250,9 +250,9 @@ public class Userfunction extends ActionSupport
 			System.out.println("书籍已借出！");
 			book_tag = "预借失败，书籍已借出！";
 			if(Page == 0)
-				sql = "select * from books order by `RegisterDate` desc limit 10";
+				sql = "select * from books order by `RegisterDate` desc";
 			else
-				sql = "select * from books order by `Love` desc limit 10";
+				sql = "select * from books order by `Love` desc";
 			//刷新书籍列表
 			Refresh(sql,connection,statement);
 			return "book_reserve_failure";
@@ -421,7 +421,7 @@ public class Userfunction extends ActionSupport
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		//查询数据
-		sql = "select * from books order by `Love` desc limit 10";
+		sql = "select * from books order by `Love` desc";
 		Refresh(sql,connection,statement);
 		return "GoodBook_success";
 	}
