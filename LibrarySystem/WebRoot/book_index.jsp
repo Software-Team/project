@@ -19,7 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	
 	<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-	
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.ico">
 	
 	<style type="text/css">
   	body
@@ -30,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:1100px;
-		top:135px;
+		left:1130px;
+		top:180px;
 	}
     </style>
     <script type="text/javascript">

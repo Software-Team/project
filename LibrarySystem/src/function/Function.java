@@ -199,11 +199,12 @@ public class Function extends ActionSupport
 	public String NewBook() throws SQLException
 	{
 		String sql;
+		PageSize = 7;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		//查询数据
-		sql = "select * from books order by `RegisterDate` desc limit 10";
+		sql = "select * from books order by `RegisterDate` desc";
 		Refresh(sql,connection,statement);
 		return "NewBook_success";
 	}
@@ -215,7 +216,7 @@ public class Function extends ActionSupport
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		//查询数据
-		sql = "select * from books order by `Love` desc limit 10";
+		sql = "select * from books order by `Love` desc limit 7";
 		Refresh(sql,connection,statement);
 		return "GoodBook_success";
 	}

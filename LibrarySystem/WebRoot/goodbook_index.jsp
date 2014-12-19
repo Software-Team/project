@@ -17,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.ico">
 	<style type="text/css">
   	body
 	{
@@ -52,32 +53,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<td align="center">书名</td>
 		    	<td align="center">作者</td>
 		    	<td align="center">出版社</td>
-		    	<td align="center">出版日期</td>
+		    	<td align="center">出版年份</td>
 		    	<td align="center">类别</td>
-		    	<td align="center">页码</td>
-		    	<td align="center">价格</td>
 		    	<td align="center">状态</td>
 		    	<td align="center">馆藏位置</td>
 		    	<td align="center">推荐</td>
 		    	<td align="center">详细信息</td>
-		    	<td align="center">修改</td>
 		    	<td align="center">删除</td>
 		   	</tr>
 		    <s:iterator value="bookdetails" status="num">
 		        <tr>
-		            <td align="center"><s:property value="ISBN"/></td>
-		            <td align="center"><a href="goodbook_index.action#mulu<s:property value="#num.count"/>" style="text-decoration:none;"><s:property value="Title"/></a></td>
-		            <td align="center"><s:property value="AuthorName"/></td>
-		            <td align="center"><s:property value="Publisher"/></td>
-		            <td align="center"><s:property value="PublishDate"/></td>
-		            <td align="center"><s:property value="Type"/></td>
-		            <td align="center"><s:property value="PageNum"/></td>
-		            <td align="center"><s:property value="Price"/></td>
-		            <td align="center"><s:property value="Status"/></td>
-		            <td align="center"><s:property value="Place"/></td>
+		            <td align="center" style="word-break:break-all;width:150px"><s:property value="ISBN"/></td>
+		            <td align="center" style="word-break:break-all;width:220px"><a href="goodbook_index.action#mulu<s:property value="#num.count"/>" style="text-decoration:none;"><s:property value="Title"/></a></td>
+		            <td align="center" style="word-break:break-all;width:140px"><s:property value="AuthorName"/></td>
+		            <td align="center" style="word-break:break-all;width:140px"><s:property value="Publisher"/></td>
+		            <td align="center" style="word-break:break-all;width:70px"><s:property value="PublishDate"/></td>
+		            <td align="center" style="word-break:break-all;width:77px"><s:property value="Type"/></td>
+		            <td align="center" style="word-break:break-all;width:40px"><s:property value="Status"/></td>
+		            <td align="center" style="word-break:break-all;width:70px"><s:property value="Place"/></td>
 		            <td align="center"><s:property value="Love"/></td>
 		            <td align="center"><a href='<s:url action="book_getdetail"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
-		            <td align="center"><a href='<s:url action="book_alter_prepare"><s:param name="ISBN" value="ISBN" /><s:param name="Title" value="Title" /><s:param name="AuthorName" value="AuthorName" /><s:param name="AuthorCountry" value="AuthorCountry" /><s:param name="Publisher" value="Publisher" /><s:param name="PublishDate" value="PublishDate" /><s:param name="RegisterDate" value="RegisterDate" /><s:param name="Type" value="Type" /><s:param name="PageNum" value="PageNum" /><s:param name="CallNum" value="CallNum" /><s:param name="Price" value="Price" /><s:param name="Status" value="Status" /><s:param name="Place" value="Place" /><s:param name="Love" value="Love" /></s:url>' style="text-decoration:none;">修改</a></td>
 		            <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn('<s:property value="ISBN"/>')" /></td>
 		        </tr>
 		    </s:iterator>
