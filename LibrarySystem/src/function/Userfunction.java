@@ -21,7 +21,9 @@ public class Userfunction extends ActionSupport
 	List<UserBookDetail> userbookdetails_temp;
 	
 	ArrayList<UserDetail> userdetails;
+	ArrayList<GoodBookDetail> goodbookdetails;
 	
+
 	ArrayList<NoteDetail> notedetails;
 	List<NoteDetail> notedetails_temp;
 	
@@ -420,6 +422,23 @@ public class Userfunction extends ActionSupport
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
+		sql = "select * from goodbooks order by `Num`";
+		goodbookdetails = new ArrayList<GoodBookDetail>();
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		goodbookdetails.clear();
+		while(Result.next()) {
+			// 输出结果
+			GoodBookDetail goodbookdetail = new GoodBookDetail();
+			
+			goodbookdetail.setNum(Result.getInt("Num"));
+			goodbookdetail.setTitle(Result.getString("Title"));
+			goodbookdetail.setAuthor(Result.getString("Author"));
+			goodbookdetail.setWords(Result.getString("Words"));
+			
+			goodbookdetails.add(goodbookdetail);
+		}
+		
 		//查询数据
 		sql = "select * from books order by `Love` desc";
 		Refresh(sql,connection,statement);
@@ -532,7 +551,7 @@ public class Userfunction extends ActionSupport
 	//刷新数据
 	public void Refresh(String sql,Connection connection,Statement statement) throws SQLException
 	{
-		PageSize = 10;
+		PageSize = 7;
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		userbookdetails = new ArrayList<UserBookDetail>();	
 		// 执行SQL语句并返回结果集
@@ -915,7 +934,14 @@ public class Userfunction extends ActionSupport
 	public void setAdvice(String advice) {
 		Advice = advice;
 	}
+	
+	public ArrayList<GoodBookDetail> getGoodbookdetails() {
+		return goodbookdetails;
+	}
 
+	public void setGoodbookdetails(ArrayList<GoodBookDetail> goodbookdetails) {
+		this.goodbookdetails = goodbookdetails;
+	}
 
 }
 

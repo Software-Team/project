@@ -138,5 +138,9 @@
 			<result name="watch_advice_success">/user_advice.jsp</result>
 		</action>
 		
+		<action name="write_summary" class="function.Function" method = "WriteSummary">
+			<result name="write_summary_success">/goodbook_index.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

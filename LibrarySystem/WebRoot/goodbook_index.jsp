@@ -35,6 +35,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    window.location.href='<s:url action="book_delete"></s:url>'+'?ISBN='+e;
 				}
 		}	
+		function warn1(str)
+		{
+			if (str=="")
+			{
+				alert("内容不能为空，请输入书籍简介！");
+				return false;
+			}
+			else
+			{
+				alert("编辑成功！");
+				return ture;
+			}
+		}
 	</script>
   </head>
   
@@ -77,11 +90,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </tr>
 		    </s:iterator>
 	    </table>
-	</center>
-    
-	<br>
-	<s:iterator value="bookdetails" status="num">
-	 	<div id="mulu<s:property value="#num.count"/>" style="height:500px;width:80px;"><s:property value="Title"/></div>
+	<br/>
+	<h3>书籍简介</h3>
+	<s:iterator value="goodbookdetails" status="num">
+	 	<s:form action="write_summary">
+		 	<div id="mulu<s:property value="#num.count"/>"><s:textarea name="Num" style="display:none"/></div>
+		 	<s:textarea label="书名" name="Title" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:600px;height:25px;font-size:15px;"/>
+		 	<s:textarea label="作者" name="Author" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:600px;height:25px;font-size:15px;font-family:华文楷体"/>
+			<s:textarea label="简介" name="Words" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:600px;height:150;font-size:14px;"/>
+			<s:submit value="提交编辑" align="right"/>
+		</s:form>
 	</s:iterator>
+	</center>
   </body>
 </html>

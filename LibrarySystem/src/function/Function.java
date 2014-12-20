@@ -22,6 +22,8 @@ public class Function extends ActionSupport
 	ArrayList<AdviceDetail> advicedetails;
 	List<AdviceDetail> advicedetails_temp;
 	
+	ArrayList<GoodBookDetail> goodbookdetails;
+
 	private ResultSet Result;
 	ResultSet Result_temp;
 	private String book_tag;
@@ -63,7 +65,8 @@ public class Function extends ActionSupport
 	private String Time;
 	private String Words;
 	
-	
+	private String Author;
+
 	//主页查询书籍信息
 	public String execute() throws SQLException
 	{	
@@ -209,6 +212,21 @@ public class Function extends ActionSupport
 		return "NewBook_success";
 	}
 	
+	public String WriteSummary() throws SQLException
+	{
+		String sql;
+		Connection connection = Connect();
+		// statement用来执行SQL语句
+		Statement statement = connection.createStatement();
+		//查询数据
+		sql = "update goodbooks set Title = '"+Title+"',Author = '"+Author+"',Words = '"+Words+"' where Num = '"+Num+"'";
+		statement.executeUpdate(sql);
+		// 关闭连接
+		connection.close();
+		GoodBook();
+		return "write_summary_success";
+	}
+	
 	public String GoodBook() throws SQLException
 	{
 		String sql;
@@ -216,6 +234,23 @@ public class Function extends ActionSupport
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		//查询数据
+		sql = "select * from goodbooks order by `Num`";
+		goodbookdetails = new ArrayList<GoodBookDetail>();
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		goodbookdetails.clear();
+		while(Result.next()) {
+			// 输出结果
+			GoodBookDetail goodbookdetail = new GoodBookDetail();
+			
+			goodbookdetail.setNum(Result.getInt("Num"));
+			goodbookdetail.setTitle(Result.getString("Title"));
+			goodbookdetail.setAuthor(Result.getString("Author"));
+			goodbookdetail.setWords(Result.getString("Words"));
+			
+			goodbookdetails.add(goodbookdetail);
+		}
+		
 		sql = "select * from books order by `Love` desc limit 7";
 		Refresh(sql,connection,statement);
 		return "GoodBook_success";
@@ -707,7 +742,22 @@ public class Function extends ActionSupport
 	public void setAdvice_Remain(int advice_Remain) {
 		Advice_Remain = advice_Remain;
 	}
+	
+	public ArrayList<GoodBookDetail> getGoodbookdetails() {
+		return goodbookdetails;
+	}
 
+	public void setGoodbookdetails(ArrayList<GoodBookDetail> goodbookdetails) {
+		this.goodbookdetails = goodbookdetails;
+	}
+	
+	public String getAuthor() {
+		return Author;
+	}
+
+	public void setAuthor(String author) {
+		Author = author;
+	}
 }
 
 class BookDetail
@@ -843,4 +893,35 @@ class AdviceDetail
 	public void setWords(String words) {
 		Words = words;
 	}
+}
+class GoodBookDetail
+{
+	private int Num;
+	private String Title;
+	private String Author;
+	private String Words;
+	public int getNum() {
+		return Num;
+	}
+	public void setNum(int num) {
+		Num = num;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
+	public String getAuthor() {
+		return Author;
+	}
+	public void setAuthor(String author) {
+		Author = author;
+	}
+	public String getWords() {
+		return Words;
+	}
+	public void setWords(String words) {
+		Words = words;
+	}	
 }

@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<td align="center">详细信息</td>
 		    	<td align="center">预借</td>
 		   	</tr>
-		    <s:iterator value="userbookdetails" status="num">
+		    <s:iterator value="userbookdetails_temp" status="num">
 		        <tr>
 		            <td align="center"><s:property value="ISBN"/></td>
 		            <td align="center"><a href="user_discovery.action#mulu<s:property value="#num.count"/>" style="text-decoration:none;"><s:property value="Title"/></a></td>
@@ -65,12 +65,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <td align="center"><a href='<s:url action="user_good_book_reserve"><s:param name="ISBN" value="ISBN" /><s:param name="Title" value="Title" /></s:url>' style="text-decoration:none;">预借</a></td>
 		        </tr>
 		    </s:iterator>
+		    <tr align="right">
+				<td colspan="17">
+					共<s:property value="TotalRow"/>行&nbsp;
+					<a href="<s:url value="user_discovery.action">
+					<s:param name="searchName" value="searchName"/>
+					<s:param name="searchValue" value="searchValue"/>
+					<s:param name="CurrentPage" value="CurrentPage"/>
+					<s:param name="PagerMethod" value="'first'"/>
+					</s:url>" style="text-decoration:none;">首页</a>
+					<a href="<s:url value="user_discovery.action">
+					<s:param name="searchName" value="searchName"/>
+					<s:param name="searchValue" value="searchValue"/>
+					<s:param name="CurrentPage" value="CurrentPage"/>
+					<s:param name="PagerMethod" value="'previous'"/>
+					</s:url>" style="text-decoration:none;">上一页</a>
+					第<s:property value="CurrentPage"/>页&nbsp;
+					<a href="<s:url value="user_discovery.action">
+					<s:param name="searchName" value="searchName"/>
+					<s:param name="searchValue" value="searchValue"/>
+					<s:param name="CurrentPage" value="CurrentPage"/>
+					<s:param name="PagerMethod" value="'next'"/>
+					</s:url>" style="text-decoration:none;">下一页</a>
+					<a href="<s:url value="user_discovery.action">
+					<s:param name="searchName" value="searchName"/>
+					<s:param name="searchValue" value="searchValue"/>
+					<s:param name="CurrentPage" value="CurrentPage"/>
+					<s:param name="PagerMethod" value="'last'"/>
+					</s:url>" style="text-decoration:none;">尾页</a>
+					共<s:property value="TotalPage"/>页&nbsp;
+				</td>
+			</tr>
 	    </table>
 	</center>
     
 	<br>
-	<s:iterator value="userbookdetails" status="num">
-	 	<div id="mulu<s:property value="#num.count"/>" style="height:500px;width:80px;"><s:property value="Title"/></div>
+	<center>
+	<s:iterator value="goodbookdetails">
+	 	<div style="width:600px;height:25px;font-family:华文楷体"><h2><s:property value="Title"/></h2></div>
+	 	<div style="width:600px;height:25px;font-family:华文楷体;font-size:16px;"><p><strong><s:property value="Author"/></strong></p></div>
+	 	<div style="width:800px;font-family:华文楷体;font-size:18px;"><p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="Words"/></p></div>
+	 	<br/>
 	</s:iterator>
+	</center>
   </body>
 </html>
