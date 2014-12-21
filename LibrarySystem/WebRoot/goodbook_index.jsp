@@ -25,6 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj
+	{
+		position: absolute;
+		left:1155px;
+		top:100px;
+	}
     </style>
 	<script type="text/javascript">
 		function warn(e)
@@ -55,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <br/>
 	  <center>
 	  	<h2>经典推荐</h2>
-	  	<a href="index.jsp">返回主菜单</a>
+	  	<a href="index.jsp" id="hwj" style="text-decoration:none;">返回主菜单</a>
 	  	<br/>
 	  	<br/>
 	  </center>

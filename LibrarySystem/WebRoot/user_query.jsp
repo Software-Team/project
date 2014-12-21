@@ -78,13 +78,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   	</tr>
 		    <s:iterator value="userbookdetails_temp">
 		        <tr align="center">
-		            <td align="center"><s:property value="ISBN"/></td>
-		            <td align="center"><s:property value="Title"/></td>
-		            <td align="center"><s:property value="AuthorName"/></td>
-		            <td align="center"><s:property value="PublishDate"/></td>
-		            <td align="center"><s:property value="Type"/></td>
-		            <td align="center"><s:property value="Status"/></td>
-		            <td align="center"><s:property value="Place"/></td>
+		            <td align="center" style="word-break:break-all;width:150px"><s:property value="ISBN"/></td>
+		            <td align="center" style="word-break:break-all;width:225px"><s:property value="Title"/></td>
+		            <td align="center" style="word-break:break-all;width:140px"><s:property value="AuthorName"/></td>
+		            <td align="center" style="word-break:break-all;width:100px"><s:property value="PublishDate"/></td>
+		            <td align="center" style="word-break:break-all;width:77px"><s:property value="Type"/></td>
+		            <td align="center" style="word-break:break-all;width:40px"><s:property value="Status"/></td>
+		            <td align="center" style="word-break:break-all;width:70px"><s:property value="Place"/></td>
 		            <td align="center"><s:property value="Love"/></td>
 		            <td align="center"><a href='<s:url action="user_book_detail"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
 		            <td align="center"><a href='<s:url action="user_book_reserve"><s:param name="ISBN" value="ISBN" /><s:param name="Title" value="Title" /></s:url>' style="text-decoration:none;">预借</a></td>

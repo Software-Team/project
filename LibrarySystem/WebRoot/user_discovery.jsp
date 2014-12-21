@@ -25,16 +25,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj727
+	{
+		position: absolute;
+		left:1100px;
+		top:125px;
+	}
     </style>
   </head>
   
   <body>
+  	  <br/>
 	  <br/>
 	  <center>
 	  	<h2>经典推荐</h2>
-	  	<a href="user_main.jsp">返回主菜单</a>
+	  	<a href="user_main.jsp" id="hwj727" style="text-decoration:none;">返回主菜单</a>
 	  	<br/>
-	  	<br/>
+	  	
 	  </center>
   	  <center>
   	  	<h4><s:property value="book_tag"/></h4>
@@ -53,13 +60,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   	</tr>
 		    <s:iterator value="userbookdetails_temp" status="num">
 		        <tr>
-		            <td align="center"><s:property value="ISBN"/></td>
-		            <td align="center"><a href="user_discovery.action#mulu<s:property value="#num.count"/>" style="text-decoration:none;"><s:property value="Title"/></a></td>
-		            <td align="center"><s:property value="AuthorName"/></td>
-		            <td align="center"><s:property value="PublishDate"/></td>
-		            <td align="center"><s:property value="Type"/></td>
-		            <td align="center"><s:property value="Status"/></td>
-		            <td align="center"><s:property value="Place"/></td>
+		            <td align="center" style="word-break:break-all;width:150px"><s:property value="ISBN"/></td>
+		            <td align="center" style="word-break:break-all;width:225px"><s:property value="Title"/></td>
+		            <td align="center" style="word-break:break-all;width:140px"><s:property value="AuthorName"/></td>
+		            <td align="center" style="word-break:break-all;width:100px"><s:property value="PublishDate"/></td>
+		            <td align="center" style="word-break:break-all;width:77px"><s:property value="Type"/></td>
+		            <td align="center" style="word-break:break-all;width:40px"><s:property value="Status"/></td>
+		            <td align="center" style="word-break:break-all;width:70px"><s:property value="Place"/></td>
 		            <td align="center"><s:property value="Love"/></td>
 		            <td align="center"><a href='<s:url action="user_book_detail"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
 		            <td align="center"><a href='<s:url action="user_good_book_reserve"><s:param name="ISBN" value="ISBN" /><s:param name="Title" value="Title" /></s:url>' style="text-decoration:none;">预借</a></td>

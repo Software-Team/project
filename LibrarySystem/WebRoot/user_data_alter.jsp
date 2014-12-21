@@ -28,6 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj727
+	{
+		position: absolute;
+		left:750px;
+		top:125px;
+	}
+	#advice
     </style>
     <script type="text/javascript">
 		function Show_UserAlter(User_Data,User_Alter){
@@ -55,11 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <br/>
   <br/>
     <center>
-    
+    <a href="user_main.jsp" id="hwj727" style="text-decoration:none;">返回主菜单</a>
     <div id="User_Data" style="display: block;">
     	<h2>用户信息</h2>
-    	<a href="user_main.jsp">返回主菜单</a>
-	  	<br/>
+    	<br/>
 	  	<br/>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">

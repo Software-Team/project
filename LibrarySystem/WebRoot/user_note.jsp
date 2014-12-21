@@ -25,16 +25,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj727
+	{
+		position: absolute;
+		left:985px;
+		top:125px;
+	}
     </style>
   </head>
   
   <body>
 	  <br/>
+	  <br/>
 	  <center>
 	  	<h2>借阅记录</h2>
-	  	<a href="user_main.jsp">返回主菜单</a>
+	  	<a href="user_main.jsp" id="hwj727" style="text-decoration:none;">返回主菜单</a>
 	  	<br/>
-	  	<br/>
+	  	
 	  </center>
   	  <center>
   	  	<h4 style="color: red;"><s:property value="book_tag"/></h4>
