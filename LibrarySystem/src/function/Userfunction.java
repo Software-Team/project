@@ -83,7 +83,7 @@ public class Userfunction extends ActionSupport
 		//查询数据
 		if(AuthorName.equals("")&&searchName.equals("")&&searchValue.equals(""))
 		{
-			book_tag = "新书列表";
+			book_tag = "";
 			sql = "select * from books order by `RegisterDate` desc";
 		}		
 		else

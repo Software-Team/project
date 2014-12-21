@@ -28,6 +28,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj727
+	{
+		position: absolute;
+		left:645px;
+		top:160px;
+	}
+	#nlh923
+	{
+		position: absolute;
+		left:1105px;
+		top:170px;
+	}
     </style>
     
   </head>
@@ -40,7 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table align="center">
 	<tr align="center">
 	<td align="right" height="20">
-		
+	<h3><a id="hwj727" style="text-decoration:none;" href='<s:url action="user_querybook"></s:url>'>新书列表</a></h3>
+	<a id="nlh923" href="user_main.jsp" style="text-decoration:none;">返回主菜单</a>
 		<s:form action="user_querybook" theme="simple">
 			<select name="searchName">
 				<option value="ISBN">ISBN</option>
@@ -53,14 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<s:textfield name="searchValue"/>
 			<s:submit value="查询" align="right"/>
 		</s:form>
-		
-		<a href='<s:url action="user_querybook"></s:url>'>返回新书列表</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="user_main.jsp">返回主菜单</a>
 	</td>
 	</tr> 
 	</table>
-	
+	<br/>
+	<br/>
 	
 		<h4 align="center"><s:property value="book_tag"/></h4>
 	    <table align="center" border="1" style="font-size:18px">

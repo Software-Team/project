@@ -109,10 +109,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br>
 	<center>
 	<s:iterator value="goodbookdetails">
-	 	<div style="width:600px;height:25px;font-family:华文楷体"><h2><s:property value="Title"/></h2></div>
+	<div style="background-color:#CD853F;width:900px;">
+	 	<div style="width:600px;height:25px;font-family:华文楷体;"><h2><s:property value="Title"/></h2></div>
 	 	<div style="width:600px;height:25px;font-family:华文楷体;font-size:16px;"><p><strong><s:property value="Author"/></strong></p></div>
 	 	<div style="width:800px;font-family:华文楷体;font-size:18px;"><p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="Words"/></p></div>
-	 	<br/>
+	<br/>
+	</div>
+ 	<br/>
+	<br/>
 	</s:iterator>
 	</center>
   </body>
