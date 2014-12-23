@@ -1,6 +1,11 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html;charset=utf-8"%> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<% 
+request.setCharacterEncoding("UTF-8"); 
+response.setCharacterEncoding("UTF-8"); 
+response.setContentType("text/html; charset=utf-8"); 
+%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";

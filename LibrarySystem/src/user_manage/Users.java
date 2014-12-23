@@ -83,7 +83,7 @@ public class Users extends ActionSupport
 		sql = "update users set UserID = '"+UserID+"',UserName = '"+UserName+"',UserPassword = '"+UserPassword+"' where UserID = '"+UserID+"'";
 		statement.executeUpdate(sql);
 		
-		sql = "select * from Users";
+		sql = "select * from users";
 		// 执行SQL语句并返回结果集
 		Refresh(sql,connection,statement);
 		return "user_Alter_success";
