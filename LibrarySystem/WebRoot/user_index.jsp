@@ -37,13 +37,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:475px;
+		left:390px;
 		top:205px;
 	}
 	#advice
 	{
 		position: absolute;
-		left:800px;
+		left:880px;
 		top:220px;
 	}
     </style>
@@ -96,9 +96,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<br/>
 	    <table align="center" border="1" style="font-size:18px">
 		    <tr align="center" style="background-color:#CD853F;">
-		    	<td align="center">账号</td>
-		    	<td align="center">用户名</td>
-		    	<td align="center">密码</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">账号</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">用户名</td>
+		    	<td align="center" style="word-break:break-all;width:100px;">密码</td>
 		    	<td align="center">详细信息</td>
 		    	<td align="center">修改</td>
 		    	<td align="center">删除</td>

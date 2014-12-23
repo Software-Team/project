@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj727
 	{
 		position: absolute;
-		left:750px;
+		left:867px;
 		top:125px;
 	}
 	#advice
@@ -75,10 +75,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<br/>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
-		    	<td align="center">账户</td>
-		    	<td align="center">用户名</td>
-		    	<td align="center">密码</td>
-		    	<td align="center">修改</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">账户</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">用户名</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">密码</td>
+		    	<td align="center" style="word-break:break-all;width:50px;">修改</td>
 		   	</tr>
 		    <tr>
 		        <td align="center"><s:property value="UserID" /></td>
@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br/>
 	  	<br/>
 	    <s:form action="user_data_alter">
-			<s:textfield name="UserID" label="账户（禁止修改）"/>
+			<s:textfield name="UserID" label="账户" readonly="true" style="color:#C4C4C4;"/>
 			<s:textfield name="UserName" label="书名"/>
 			<s:textfield name="UserPassword" label="密码"/>
 			<s:submit value="确认修改" align="right"/>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br/>
 	<p>意见反馈</p>
 	<s:form action="write_advice">
-		<s:textarea id="hwj" name="Advice" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:300px;height:77"/>
+		<s:textarea id="hwj" name="Advice" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:525px;height:77"/>
 		<s:submit value="提交意见" align="right" onclick = "return warn(document.getElementById('hwj').value)"/>
 	</s:form>
     </center>

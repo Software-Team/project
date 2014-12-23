@@ -46,6 +46,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   	UserRegist_input.style.display='block';
 		   	UserRegist_pic.style.display='none';
 		}
+		function warn(str1,str2)
+		{
+			if (str1==""||str2=="")
+			{
+				alert("账号或密码不能为空，请输入相应信息！");
+				return false;
+			}
+			else
+			{
+				return ture;
+			}
+		}
+		function warn1(str1,str2,str3)
+		{
+			if (str1==""||str2==""||str3=="")
+			{
+				alert("账号、姓名或密码不能为空，请输入相应信息！");
+				return false;
+			}
+			else
+			{
+				return ture;
+			}
+		}
 	</script>
 
   </head>
@@ -55,24 +79,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<p id="hwj" style="color: red;"><s:property value="Signal"/></p>
 		<div id="AdminLogin_input" style="display: none;" class="input">	
 			<s:form action="login" >
-				<s:textfield name="AdminID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>					
-				<s:password name="AdminPassword" label=" 密码" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
-				<s:submit value="管理员登录" align="right"/>
+				<s:textfield id="hwj1" name="AdminID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>					
+				<s:password id="hwj2" name="AdminPassword" label=" 密码" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+				<s:submit value="管理员登录" align="right" onclick = "return warn(document.getElementById('hwj1').value,document.getElementById('hwj2').value)"/>
 			</s:form>
 		</div>
 		<div id="UserLogin_input" style="display: block;" class="input">
 			<s:form action="userlogin" >
-				<s:textfield name="UserID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>					
-				<s:password name="UserPassword" label=" 密码"  style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
-				<s:submit value="用户登录" align="right"/>
+				<s:textfield id="hwj3" name="UserID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>					
+				<s:password id="hwj4" name="UserPassword" label=" 密码"  style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+				<s:submit value="用户登录" align="right" onclick = "return warn(document.getElementById('hwj3').value,document.getElementById('hwj4').value)"/>
 			</s:form>
 		</div>
 		<div id="UserRegist_input" style="display: none;" class="input">
 			<s:form action="userregist" >
-				<s:textfield name="UserID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>	
-				<s:textfield name="UserName" label=" 姓名" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>				
-				<s:password name="UserPassword" label=" 密码"  style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
-				<s:submit value="用户注册" align="right"/>
+				<s:textfield id="hwj5" name="UserID" label=" 账号" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>	
+				<s:textfield id="hwj6" name="UserName" label=" 姓名" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>				
+				<s:password id="hwj7" name="UserPassword" label=" 密码"  style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+				<s:submit value="用户注册" align="right" onclick = "return warn1(document.getElementById('hwj5').value,document.getElementById('hwj6').value,document.getElementById('hwj7').value)"/>
 			</s:form>
 		</div>
 		<br/>

@@ -19,7 +19,7 @@ public class Users extends ActionSupport
 	List<UserDetail> userdetails_temp;
 	ArrayList<NoteDetail> notedetails;
 	
-	private int PageSize = 8;
+	private int PageSize = 7;
 	private int CurrentPage = 1;
 	private int TotalPage;
 	private int TotalRow;
@@ -104,7 +104,7 @@ public class Users extends ActionSupport
 		sql = "drop table note"+UserID;
 		statement.executeUpdate(sql);
 		
-		sql = "select * from Users";
+		sql = "select * from users";
 		// 执行SQL语句并返回结果集
 		Refresh(sql,connection,statement);
 		return "user_Delete_success";

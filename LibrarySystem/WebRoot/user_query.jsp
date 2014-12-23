@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	<br/>
 	<br/>
-	
+	<br/>
 		<h4 align="center"><s:property value="book_tag"/></h4>
 	    <table align="center" border="1" style="font-size:18px">
 		    <tr align="center" style="background-color:#CD853F;">

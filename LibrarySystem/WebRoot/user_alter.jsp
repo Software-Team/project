@@ -43,8 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <center>
     <s:form action="user_alter">
     	<h3>用户信息修改</h3>
-		<s:textfield name="UserID" label="账户（禁止修改）" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
-		<s:textfield name="UserName" label="书名" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+		<s:textfield name="UserID" label="账号" readonly="true" style="background-color:transparent;border-color: #8B7500;border-width: thin;color:#969696;"/>
+		<s:textfield name="UserName" label="用户名" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="UserPassword" label="密码" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:submit value="确认修改" align="right"/>
 	</s:form>

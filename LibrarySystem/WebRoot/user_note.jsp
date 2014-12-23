@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj727
 	{
 		position: absolute;
-		left:985px;
+		left:1028px;
 		top:125px;
 	}
     </style>
@@ -53,22 +53,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	  	<h4 style="color: red;"><s:property value="book_tag"/></h4>
 	    <table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
-		    	<td align="center">ISBN</td>
-		    	<td align="center">书名</td>
-		    	<td align="center">借出日期</td>
-		    	<td align="center">归还日期</td>
-		    	<td align="center">续借次数</td>
+		    	<td align="center" style="word-break:break-all;width:150px;">ISBN</td>
+		    	<td align="center" style="word-break:break-all;width:220px;">书名</td>
+		    	<td align="center" style="word-break:break-all;width:100px;">借出日期</td>
+		    	<td align="center" style="word-break:break-all;width:100px;">归还日期</td>
+		    	<td align="center" style="word-break:break-all;width:80px;">续借次数</td>
 		    	<td align="center">详细信息</td>
 		    	<td align="center">推荐</td>
 		    	<td align="center">续借</td>
 		   	</tr>
 		    <s:iterator value="notedetails_temp">
 		        <tr>
-		            <td align="center"><s:property value="ISBN"/></td>
-		            <td align="center"><s:property value="Title"/></td>
-		            <td align="center"><s:property value="OutTime"/></td>
-		            <td align="center"><s:property value="Expiration"/></td>
-		            <td align="center"><s:property value="Num"/></td>
+		            <td align="center" ><s:property value="ISBN"/></td>
+		            <td align="center" ><s:property value="Title"/></td>
+		            <td align="center" ><s:property value="OutTime"/></td>
+		            <td align="center" ><s:property value="Expiration"/></td>
+		            <td align="center" ><s:property value="Num"/></td>
 		            <td align="center"><a href='<s:url action="user_book_detail"><s:param name="page_tag" value="page_tag" /><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
 		            <td align="center"><a href='<s:url action="book_love"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">推荐</a></td>
 		            <td align="center"><a href='<s:url action="user_borrowagain"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">续借</a></td>

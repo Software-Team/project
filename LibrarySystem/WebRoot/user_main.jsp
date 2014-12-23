@@ -52,5 +52,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 		    </div>
 		</div>
+		<div id="hwj727"><p style="color:#FFFFFF">Copyright © 2014 软工坊 All Rights Reserved</p></div>
   </body>
 </html>
