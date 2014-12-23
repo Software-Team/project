@@ -105,15 +105,10 @@ public class Function extends ActionSupport
 		book_tag = "书籍列表";
 		Connection connection = Connect();
 		// statement用来执行SQL语句
-		Statement statement = connection.createStatement();
-		// 要执行的SQL语句
-		
-		//更改数据
-		
+		Statement statement = connection.createStatement();	
+		//更改数据	
 		sql = "update books set Title = '"+Title+"',AuthorName = '"+AuthorName+"',AuthorCountry = '"+AuthorCountry+"',Publisher = '"+Publisher+"', PublishDate = '"+PublishDate+"', RegisterDate = '"+RegisterDate+"', Type = '"+Type+"',PageNum = '"+PageNum+"',CallNum = '"+CallNum+"',Price = '"+Price+"',Status = '"+Status+"',Place = '"+Place+"', Love = '"+Love+"' where ISBN = '"+ISBN+"'";
-		statement.executeQuery("set names 'utf8'");
 		statement.executeUpdate(sql);
-		
 		
 		sql = "select * from books";
 		//刷新书籍列表
@@ -349,7 +344,7 @@ public class Function extends ActionSupport
 			// 加载驱动程序
 			Class.forName("com.mysql.jdbc.Driver");
 			// URL指向要访问的数据库名test
-			String url = "jdbc:mysql://localhost:3306/bookdb";	
+			String url = "jdbc:mysql://localhost:3306/bookdb?characterEncoding=utf8";	
 			// MySQL配置时的用户名
 			String user = "root";
 			// MySQL配置时的密码
