@@ -2,8 +2,8 @@ package user_manage;
 
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -144,6 +144,7 @@ public class Users extends ActionSupport
 	{
 		String sql;
 		user_tag = "用户列表";
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
@@ -171,8 +172,8 @@ public class Users extends ActionSupport
 			
 			notedetail.setISBN(Result.getString("ISBN"));
 			notedetail.setTitle(Result.getString("Title"));
-			notedetail.setOutTime(Result.getDate("OutTime"));
-			notedetail.setExpiration(Result.getDate("Expiration"));
+			notedetail.setOutTime(df.format(Result.getDate("OutTime")));
+			notedetail.setExpiration(df.format(Result.getDate("Expiration")));
 			notedetail.setNum(Result.getInt("Num"));
 
 			notedetails.add(notedetail);
@@ -466,8 +467,8 @@ class NoteDetail
 {
 	private String ISBN;
 	private String Title;
-	private Date OutTime;
-	private Date Expiration;
+	private String OutTime;
+	private String Expiration;
 	private int Num; 
 	public String getISBN() {
 		return ISBN;
@@ -481,18 +482,19 @@ class NoteDetail
 	public void setTitle(String title) {
 		Title = title;
 	}
-	public Date getOutTime() {
+	public String getOutTime() {
 		return OutTime;
 	}
-	public void setOutTime(Date outTime) {
+	public void setOutTime(String outTime) {
 		OutTime = outTime;
 	}
-	public Date getExpiration() {
+	public String getExpiration() {
 		return Expiration;
 	}
-	public void setExpiration(Date expiration) {
+	public void setExpiration(String expiration) {
 		Expiration = expiration;
 	}
+
 	public int getNum() {
 		return Num;
 	}

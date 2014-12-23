@@ -28,6 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-image:url(img/bg2.jpg);
 		background-repeat: repeat;
 	}
+	#hwj
+	{
+		position: absolute;
+		left:980px;
+		top:115px;
+	}
     </style>
     <script type="text/javascript">
 		function warn()
@@ -42,13 +48,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body bgcolor="#BCD2EE">
+  	<a id="hwj" href='<s:url action="user_index"></s:url>' style="text-decoration:none;">返回用户管理</a>
     <center>
     	<br/>
     	<br/>
     	<h3>用户信息</h3>
-    	<s:form action="user_index">
-			<s:submit value = "返回用户管理界面"/>
-		</s:form>
+    	<br/>
+    	<br/>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
 		    	<td align="center">账户</td>
@@ -58,28 +64,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<td align="center">删除</td>
 		   	</tr>
 		    <tr>
-		        <td align="center"><s:property value="UserID" /></td>
-		        <td align="center"><s:property value="UserName"/></td>
-		        <td align="center"><s:property value="UserPassword"/></td>
-		        <td align="center"><a href='<s:url action="user_alter_prepare"><s:param name="UserID" value="UserID" /><s:param name="UserName" value="UserName" /><s:param name="UserPassword" value="UserPassword" /></s:url>'>修改</a></td>
-		        <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn()"/></td>
+		        <td align="center" style="word-break:break-all;width:150px"><s:property value="UserID" /></td>
+		        <td align="center" style="word-break:break-all;width:150px"><s:property value="UserName"/></td>
+		        <td align="center" style="word-break:break-all;width:150px"><s:property value="UserPassword"/></td>
+		        <td align="center" style="word-break:break-all;width:150px"><a href='<s:url action="user_alter_prepare"><s:param name="UserID" value="UserID" /><s:param name="UserName" value="UserName" /><s:param name="UserPassword" value="UserPassword" /></s:url>'>修改</a></td>
+		        <td align="center" style="word-break:break-all;width:150px"><input type="button" name="删除" id="删除" value="删除" onclick="warn()"/></td>
 		    </tr>    
 	    </table>
 	    <br/>
 	    <h3>借阅记录</h3>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
-		    	<td align="center">ISBN</td>
-		    	<td align="center">书名</td>
-		    	<td align="center">借出日期</td>
-		    	<td align="center">归还日期</td>
-		    	<td align="center">续借次数</td>
-		    	<td align="center">还书</td>
+		    	<td align="center" style="word-break:break-all;width:150px">ISBN</td>
+		    	<td align="center" style="word-break:break-all;width:277px">书名</td>
+		    	<td align="center" style="word-break:break-all;width:100px">借出日期</td>
+		    	<td align="center" style="word-break:break-all;width:100px">归还日期</td>
+		    	<td align="center" style="word-break:break-all;width:80px">续借次数</td>
+		    	<td align="center" style="word-break:break-all;width:40px">还书</td>
 		   	</tr>
 		    <s:iterator value="notedetails">
 		        <tr>
-		            <td align="center"><s:property value="ISBN"/></td>
-		            <td align="center"><s:property value="Title"/></td>
+		            <td align="center" style="word-break:break-all;width:150px"><s:property value="ISBN"/></td>
+		            <td align="center" style="word-break:break-all;width:273px"><s:property value="Title"/></td>
 		            <td align="center"><s:property value="OutTime"/></td>
 		            <td align="center"><s:property value="Expiration"/></td>
 		            <td align="center"><s:property value="Num"/></td>
