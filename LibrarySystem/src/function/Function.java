@@ -111,7 +111,9 @@ public class Function extends ActionSupport
 		//更改数据
 		
 		sql = "update books set Title = '"+Title+"',AuthorName = '"+AuthorName+"',AuthorCountry = '"+AuthorCountry+"',Publisher = '"+Publisher+"', PublishDate = '"+PublishDate+"', RegisterDate = '"+RegisterDate+"', Type = '"+Type+"',PageNum = '"+PageNum+"',CallNum = '"+CallNum+"',Price = '"+Price+"',Status = '"+Status+"',Place = '"+Place+"', Love = '"+Love+"' where ISBN = '"+ISBN+"'";
+		statement.executeQuery("set names 'utf8'");
 		statement.executeUpdate(sql);
+		
 		
 		sql = "select * from books";
 		//刷新书籍列表
