@@ -55,29 +55,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <center>
   	<h2>书目查询</h2>
   </center>
-  <table align="center">
-	<tr align="center">
-	<td align="right" height="20">
-	<h3><a id="hwj727" style="text-decoration:none;" href='<s:url action="user_querybook"></s:url>'>新书列表</a></h3>
+  	<h3><a id="hwj727" style="text-decoration:none;" href='<s:url action="user_querybook"></s:url>'>新书列表</a></h3>
 	<a id="nlh923" href="user_main.jsp" style="text-decoration:none;">返回主菜单</a>
-		<s:form action="user_querybook" theme="simple">
-			<select name="searchName">
-				<option value="ISBN">ISBN</option>
-				<option selected value="Title">书名</option>
-				<option value="AuthorName">作者</option>
-				<option value="Type">类型</option>	
-				<option value="CallNum">索取号</option>	
-				<option value="Place">馆藏位置</option>
-			</select>
-			<s:textfield name="searchValue"/>
-			<s:submit value="查询" align="right"/>
-		</s:form>
-	</td>
-	</tr> 
+  	<table align="center">
+		<tr align="center">
+		<td align="right" height="20">
+		
+			<s:form action="user_querybook" theme="simple">
+				<select name="searchName">
+					<option value="ISBN">ISBN</option>
+					<option selected value="Title">书名</option>
+					<option value="AuthorName">作者</option>
+					<option value="Type">类型</option>	
+					<option value="CallNum">索取号</option>	
+					<option value="Place">馆藏位置</option>
+				</select>
+				<s:textfield name="searchValue"/>
+				<s:submit value="查询" align="right"/>
+			</s:form>
+		</td>
+		</tr> 
 	</table>
 	<br/>
 	<br/>
-	<br/>
+
 		<h4 align="center"><s:property value="book_tag"/></h4>
 	    <table align="center" border="1" style="font-size:18px">
 		    <tr align="center" style="background-color:#CD853F;">
