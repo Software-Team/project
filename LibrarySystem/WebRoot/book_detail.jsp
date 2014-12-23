@@ -30,13 +30,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
     </style>
     <script type="text/javascript">
-		function warn()
+		function warn(e)
 		{		
-				var ret = window.confirm("确定删除该书?");
-				//当点击确定时 返回 true 
-				if(ret){
-				    window.location.href='<s:url action="book_delete"><s:param name="ISBN" value="ISBN" /></s:url>';
-				}
+			var ret = window.confirm("确定删除该书?");
+			//当点击确定时 返回 true 
+			if(ret){
+			    window.location.href='<s:url action="book_delete"></s:url>'+'?ISBN='+e;
+			}
+		}	
+		function chose(Num)
+		{
+			if(Num == 1)
+				window.location.href='<s:url action="book_index"></s:url>';
+			else if (Num == 2)
+				window.location.href='<s:url action="newbook_index"></s:url>';
+			else
+				window.location.href='<s:url action="goodbook_index"></s:url>';
 		}
 	</script>
   </head>
@@ -46,6 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br/>
     	<br/>
     	<h3>书籍信息</h3>
+    	<br/>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
 		    	<td align="center">ISBN</td>
@@ -81,23 +91,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <td align="center"><s:property value="Place"/></td>
 		        <td align="center"><s:property value="Love"/></td>
 		        <td align="center"><a href='<s:url action="book_alter_prepare"><s:param name="ISBN" value="ISBN" /><s:param name="Title" value="Title" /><s:param name="AuthorName" value="AuthorName" /><s:param name="AuthorCountry" value="AuthorCountry" /><s:param name="Publisher" value="Publisher" /><s:param name="PublishDate" value="PublishDate" /><s:param name="RegisterDate" value="RegisterDate" /><s:param name="Type" value="Type" /><s:param name="PageNum" value="PageNum" /><s:param name="CallNum" value="CallNum" /><s:param name="Price" value="Price" /><s:param name="Status" value="Status" /><s:param name="Place" value="Place" /><s:param name="Love" value="Love" /></s:url>' style="text-decoration:none;">修改</a></td>
-		        <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn()" /></td>
+		        <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn('<s:property value="ISBN"/>')" /></td>
 		    </tr>    
 	    </table>
     	
     	<br/>
     	<br/>
-	    <table align="center">
-			<tr align="center">
-				<td align="right" height="20">
-					<a href='<s:url action="book_index"></s:url>'>返回图书管理界面</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='<s:url action="newbook_index"></s:url>'>返回新书通报界面</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='<s:url action="goodbook_index"></s:url>'>返回经典推荐界面</a>
-				</td>
-			</tr> 
-		</table>
+    	<input type="button" name="返回" value="返回" onclick="chose('<s:property value="page_tag"/>')" />
     </center>
   </body>
 </html>

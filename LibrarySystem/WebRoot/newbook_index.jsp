@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <td align="center" style="word-break:break-all;width:40px"><s:property value="Status"/></td>
 		            <td align="center" style="word-break:break-all;width:70px"><s:property value="Place"/></td>
 		            <td align="center"><s:property value="Love"/></td>
-		            <td align="center"><a href='<s:url action="book_getdetail"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
+		            <td align="center"><a href='<s:url action="book_getdetail"><s:param name="page_tag" value="page_tag" /><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
 		            <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn('<s:property value="ISBN"/>')" /></td>
 		            
 		        </tr>

@@ -27,6 +27,8 @@ public class Userfunction extends ActionSupport
 	ArrayList<NoteDetail> notedetails;
 	List<NoteDetail> notedetails_temp;
 	
+	private int page_tag;
+
 	private int PageSize = 2;
 	private int CurrentPage = 1;
 	private int TotalPage;
@@ -75,6 +77,7 @@ public class Userfunction extends ActionSupport
 	public String execute() throws SQLException
 	{	
 		String sql;
+		page_tag = 1;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
@@ -287,6 +290,7 @@ public class Userfunction extends ActionSupport
 	public String BorrowNote() throws SQLException
 	{
 		String sql;
+		page_tag = 2;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
@@ -418,6 +422,7 @@ public class Userfunction extends ActionSupport
 	public String GoodBook() throws SQLException
 	{
 		String sql;
+		page_tag = 3;
 		Page = 1;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
@@ -941,6 +946,14 @@ public class Userfunction extends ActionSupport
 
 	public void setGoodbookdetails(ArrayList<GoodBookDetail> goodbookdetails) {
 		this.goodbookdetails = goodbookdetails;
+	}
+	
+	public int getPage_tag() {
+		return page_tag;
+	}
+
+	public void setPage_tag(int page_tag) {
+		this.page_tag = page_tag;
 	}
 
 }

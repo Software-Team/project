@@ -85,6 +85,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div id="User_Alter" style="display: none;">
     	<h3>用户信息修改</h3>
+    	<br/>
+	  	<br/>
 	    <s:form action="user_data_alter">
 			<s:textfield name="UserID" label="账户（禁止修改）"/>
 			<s:textfield name="UserName" label="书名"/>

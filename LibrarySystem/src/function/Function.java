@@ -27,6 +27,8 @@ public class Function extends ActionSupport
 	private ResultSet Result;
 	ResultSet Result_temp;
 	private String book_tag;
+	private int page_tag;
+
 
 	private int Book_Total;
 	private int Book_Remain;
@@ -71,6 +73,7 @@ public class Function extends ActionSupport
 	public String execute() throws SQLException
 	{	
 		String sql;
+		page_tag = 1;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
@@ -202,6 +205,7 @@ public class Function extends ActionSupport
 	public String NewBook() throws SQLException
 	{
 		String sql;
+		page_tag = 2;
 		PageSize = 7;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
@@ -230,6 +234,7 @@ public class Function extends ActionSupport
 	public String GoodBook() throws SQLException
 	{
 		String sql;
+		page_tag = 3;
 		Connection connection = Connect();
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
@@ -757,6 +762,14 @@ public class Function extends ActionSupport
 
 	public void setAuthor(String author) {
 		Author = author;
+	}
+	
+	public int getPage_tag() {
+		return page_tag;
+	}
+
+	public void setPage_tag(int page_tag) {
+		this.page_tag = page_tag;
 	}
 }
 

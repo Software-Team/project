@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <td align="center"><s:property value="OutTime"/></td>
 		            <td align="center"><s:property value="Expiration"/></td>
 		            <td align="center"><s:property value="Num"/></td>
-		            <td align="center"><a href='<s:url action="user_book_detail"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
+		            <td align="center"><a href='<s:url action="user_book_detail"><s:param name="page_tag" value="page_tag" /><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">详细</a></td>
 		            <td align="center"><a href='<s:url action="book_love"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">推荐</a></td>
 		            <td align="center"><a href='<s:url action="user_borrowagain"><s:param name="ISBN" value="ISBN" /></s:url>' style="text-decoration:none;">续借</a></td>
 		        </tr>

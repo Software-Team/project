@@ -29,6 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background-repeat: repeat;
 	}
     </style>
+    
+    <script type="text/javascript">
+		function chose(Num)
+		{
+			if(Num == 1)
+				window.location.href='<s:url action="user_querybook"></s:url>';
+			else if (Num == 2)
+				window.location.href='<s:url action="user_note"></s:url>';
+			else
+				window.location.href='<s:url action="user_discovery"></s:url>';
+		}
+	</script>
   </head>
   
   <body>
@@ -36,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br/>
     	<br/>
     	<h3>书籍信息</h3>
+    	<br/>
     	<table border="1" style="font-size:18px">
 		    <tr style="background-color:#CD853F;">
 		    	<td align="center">ISBN</td>
@@ -74,17 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<br/>
     	<br/>
-	    <table align="center">
-			<tr align="center">
-				<td align="right" height="20">
-					<a href='<s:url action="user_querybook"></s:url>'>返回新书列表</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='<s:url action="user_note"></s:url>'>返回借阅记录</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='<s:url action="user_discovery"></s:url>'>返回经典推荐</a>
-				</td>
-			</tr> 
-		</table>
+	    <input type="button" name="返回" value="返回" onclick="chose('<s:property value="page_tag"/>')" />
 	    	
 	</center>
   </body>
