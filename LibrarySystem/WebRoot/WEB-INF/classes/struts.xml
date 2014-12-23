@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<include file="struts-default.xml"/>
+	<package name="hwj" extends="struts-default">
+		<action name="login" class="login.Login">
+			<result name="success">/index.jsp</result>
+			<result name="failure">/login.jsp</result>
+		</action>
+		
+		<action name="book_index" class="function.Function" method = "execute">
+			<result name="book_display_success">/book_index.jsp</result>
+		</action>
+		
+		<action name="book_query" class="function.Function" method = "execute">
+			<result name="book_display_success">/book_index.jsp</result>
+		</action>
+		
+		<action name="book_add" class="function.Function" method = "Addbook">
+			<result name="book_Add_New_success">/book_index.jsp</result>
+		</action>
+		
+		<action name="book_delete" class="function.Function" method = "Delete">
+			<result name="book_Delete_success">/book_index.jsp</result>
+		</action>
+		
+		<action name="book_alter" class="function.Function" method = "Alter">
+			<result name="book_Alter_success">/book_index.jsp</result>
+		</action>
+		
+		<action name="book_alter_prepare" class="function.Function" method = "Alter_prepare">
+			<result name="book_Alter_prepare">/book_alter.jsp</result>
+		</action>
+		
+		<action name="book_getdetail" class="function.Function" method = "GetDetail">
+			<result name="book_GetDetail_success">/book_detail.jsp</result>
+		</action>
+		
+		
+		<action name="user_index" class="user_manage.Users" method = "execute">
+			<result name="user_display_success">/user_index.jsp</result>
+		</action>
+		
+		<action name="user_query" class="user_manage.Users" method = "execute">
+			<result name="user_display_success">/user_index.jsp</result>
+		</action>
+		
+		<action name="user_add" class="user_manage.Users" method = "Addbook">
+			<result name="user_Add_New_success">/user_index.jsp</result>
+		</action>
+		
+		<action name="user_delete" class="user_manage.Users" method = "Delete">
+			<result name="user_Delete_success">/user_index.jsp</result>
+		</action>
+		
+		<action name="user_alter" class="user_manage.Users" method = "Alter">
+			<result name="user_Alter_success">/user_index.jsp</result>
+		</action>
+		
+		<action name="user_alter_prepare" class="user_manage.Users" method = "Alter_prepare">
+			<result name="user_Alter_prepare">/user_alter.jsp</result>
+		</action>
+		
+		<action name="user_getdetail" class="user_manage.Users" method = "GetDetail">
+			<result name="user_GetDetail_success">/user_detail.jsp</result>
+		</action>
+		
+		<action name="newbook_index" class="function.Function" method = "NewBook">
+			<result name="NewBook_success">/newbook_index.jsp</result>
+		</action>
+		
+		<action name="goodbook_index" class="function.Function" method = "GoodBook">
+			<result name="GoodBook_success">/goodbook_index.jsp</result>
+		</action>
+		
+		<action name="userlogin" class="function.Userfunction" method = "UserLogin">
+			<result name="login_success">/user_main.jsp</result>
+			<result name="login_failure">/login.jsp</result>
+		</action>
+		
+		<action name="userregist" class="function.Userfunction" method = "UserRegist">
+			<result name="regist_success">/login.jsp</result>
+			<result name="regist_failure">/login.jsp</result>
+		</action>
+		
+		<action name="user_querybook" class="function.Userfunction" method = "execute">
+			<result name="book_query_success">/user_query.jsp</result>
+		</action>
+		
+		<action name="user_book_detail" class="function.Userfunction" method = "GetDetail">
+			<result name="book_GetDetail_success">/user_book_detail.jsp</result>
+		</action>
+		
+		<action name="user_book_reserve" class="function.Userfunction" method = "BookReserve">
+			<result name="book_reserve_success">/user_query.jsp</result>
+			<result name="book_reserve_failure">/user_query.jsp</result>
+		</action>
+		
+		<action name="user_good_book_reserve" class="function.Userfunction" method = "BookReserve">
+			<result name="book_reserve_success">/user_discovery.jsp</result>
+			<result name="book_reserve_failure">/user_discovery.jsp</result>
+		</action>
+		
+		<action name="user_note" class="function.Userfunction" method = "BorrowNote">
+			<result name="display_borrownote_success">/user_note.jsp</result>
+		</action>
+		
+		<action name="user_borrowagain" class="function.Userfunction" method = "BorrowAgain">
+			<result name="book_borrowagain_success">/user_note.jsp</result>
+			<result name="book_borrowagain_failure">/user_note.jsp</result>
+		</action>
+		
+		<action name="user_discovery" class="function.Userfunction" method = "GoodBook">
+			<result name="GoodBook_success">/user_discovery.jsp</result>
+		</action>
+		
+		<action name="user_detail" class="function.Userfunction" method = "UserGetDetail">
+			<result name="user_GetDetail_success">/user_data_alter.jsp</result>
+		</action>
+		
+		<action name="user_data_alter" class="function.Userfunction" method = "UserAlter">
+			<result name="UserAlter_success">/user_data_alter.jsp</result>
+		</action>
+		
+		<action name="return_book" class="user_manage.Users" method = "ReturnBook">
+			<result name="return_success">/user_detail.jsp</result>
+		</action>
+		
+		<action name="book_love" class="function.Userfunction" method = "BookLove">
+			<result name="book_Love_success">/user_note.jsp</result>
+		</action>
+		
+		<action name="write_advice" class="function.Userfunction" method = "WriteAdvice">
+			<result name="write_advice_success">/user_data_alter.jsp</result>
+		</action>
+		
+		<action name="advice_index" class="function.Function" method = "WatchAdvice">
+			<result name="watch_advice_success">/user_advice.jsp</result>
+		</action>
+		
+		<action name="write_summary" class="function.Function" method = "WriteSummary">
+			<result name="write_summary_success">/goodbook_index.jsp</result>
+		</action>
+		
+	</package>
+</struts>    
