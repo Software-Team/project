@@ -142,5 +142,9 @@
 			<result name="write_summary_success">/goodbook_index.jsp</result>
 		</action>
 		
+		<action name="user_exit" class="function.Userfunction" method = "UserExit">
+			<result name="exit_success">/login.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

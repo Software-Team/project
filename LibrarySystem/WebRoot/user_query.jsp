@@ -38,13 +38,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	{
 		position: absolute;
 		left:645px;
-		top:160px;
+		top:150px;
 	}
 	#nlh923
 	{
 		position: absolute;
 		left:1105px;
-		top:170px;
+		top:150px;
 	}
     </style>
     

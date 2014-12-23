@@ -31,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <a id="nlh" href='<s:url action="user_exit"></s:url>' style="text-decoration:none;">退出登陆</a>
 		<div id="main">
 			<div id="left"><img src="img/hitlib.png"/>
 				<div id="title">

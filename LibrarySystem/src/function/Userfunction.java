@@ -139,6 +139,11 @@ public class Userfunction extends ActionSupport
 			return "login_failure";
 		}
 	}
+	public String UserExit() throws SQLException
+	{
+		User = null;
+		return "exit_success";
+	}
 	public String UserRegist() throws SQLException
 	{
 		String sql;
@@ -353,8 +358,11 @@ public class Userfunction extends ActionSupport
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		// 要执行的SQL语句
-		sql = "update users set UserID = '"+UserID+"',UserName = '"+UserName+"',UserPassword = '"+UserPassword+"' where UserID = '"+UserID+"'";
-		statement.executeUpdate(sql);
+		if(UserID != null && UserName != null &&UserPassword != null)
+		{
+			sql = "update users set UserID = '"+UserID+"',UserName = '"+UserName+"',UserPassword = '"+UserPassword+"' where UserID = '"+UserID+"'";
+			statement.executeUpdate(sql);
+		}
 		UserGetDetail();
 		return "UserAlter_success";
 	}
