@@ -192,10 +192,13 @@ public class Userfunction extends ActionSupport
 			Advice_Total =  Result.getInt("COUNT(*)");
 		}
 		Advice_Total++;
-		Time_temp = date.format(new Date());
-		sql = "insert into advice values ('"+Advice_Total+"','"+User+"','"+Time_temp+"','"+Advice+"')";
-		statement.executeUpdate(sql);
-		Advice = "";
+		if(Advice != null)
+		{
+			Time_temp = date.format(new Date());
+			sql = "insert into advice values ('"+Advice_Total+"','"+User+"','"+Time_temp+"','"+Advice+"')";
+			statement.executeUpdate(sql);
+		}
+		Advice = null;
 		//查询数据
 		sql = "select * from users where UserID = '"+User+"'";
 		// 执行SQL语句并返回结果集

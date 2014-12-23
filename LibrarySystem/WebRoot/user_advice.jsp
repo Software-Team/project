@@ -31,8 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#hwj
 	{
 		position: absolute;
-		left:985px;
-		top:110px;
+		left:324px;
+		top:90px;
+	}
+	#hwj727
+	{
+		position: absolute;
+		left:950px;
+		top:105px;
 	}
     </style>
   </head>
@@ -42,19 +48,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <center>
   	<h2>用户意见反馈</h2>
   </center>
-  <p id="hwj">总计：<s:property value="Advice_Total"/></p>
-  <table align="center">
-	<tr align="center">
-	<td align="right" height="20">
-		
-	
-	<a href='<s:url action="user_index"></s:url>'>返回用户列表</a>
-	&nbsp;&nbsp;
-	<a href="index.jsp">返回主菜单</a>
-	
-	</td>
-	</tr>
-	</table>
+	 <p id="hwj">总计：<s:property value="Advice_Total"/></p>
+	 <a id="hwj727" href='<s:url action="user_index"></s:url>' style="text-decoration:none;">返回用户列表</a>
+	  
 	
 	<br/>
 	<h3 align="center"><s:property value="user_tag"/></h3>
