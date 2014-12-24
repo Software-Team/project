@@ -23,13 +23,13 @@ public class Function extends ActionSupport
 	List<AdviceDetail> advicedetails_temp;
 	
 	ArrayList<GoodBookDetail> goodbookdetails;
+	ArrayList<NoteDetail> notedetails;
 
 	private ResultSet Result;
 	ResultSet Result_temp;
 	private String book_tag;
 	private int page_tag;
-
-
+	
 	private int Book_Total;
 	private int Book_Remain;
 
@@ -61,6 +61,8 @@ public class Function extends ActionSupport
 	private String Place;
 	private int Love;
 	
+	private String OutTime;
+	private String Expiration;
 	
 	private int Num;
 	private String UserID;
@@ -192,6 +194,27 @@ public class Function extends ActionSupport
 			Place = Result.getString("Place");
 			Love = Result.getInt("Love");
 		}
+		//查询数据
+		sql = "select * from note where ISBN = '"+ISBN+"'";
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		if(Result.next()==false)
+		{
+			UserID = "-";
+			OutTime = "-";
+			Expiration = "-";
+		}
+		else
+		{
+			// 输出结果	
+			ISBN = Result.getString("ISBN");
+			UserID = Result.getString("UserID");
+			Title = Result.getString("Title");
+			OutTime = df.format(Result.getDate("OutTime"));
+			Expiration = df.format(Result.getDate("Expiration"));
+			Num = Result.getInt("Num");
+		}
+		
 		// 关闭结果集
 		Result.close();
 		// 关闭连接
@@ -768,6 +791,30 @@ public class Function extends ActionSupport
 	public void setPage_tag(int page_tag) {
 		this.page_tag = page_tag;
 	}
+	public ArrayList<NoteDetail> getNotedetails() {
+		return notedetails;
+	}
+
+	public void setNotedetails(ArrayList<NoteDetail> notedetails) {
+		this.notedetails = notedetails;
+	}
+
+	public String getOutTime() {
+		return OutTime;
+	}
+
+	public void setOutTime(String outTime) {
+		OutTime = outTime;
+	}
+
+	public String getExpiration() {
+		return Expiration;
+	}
+
+	public void setExpiration(String expiration) {
+		Expiration = expiration;
+	}
+
 }
 
 class BookDetail

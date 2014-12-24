@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <a id="nlh" href='<s:url action="user_exit"></s:url>' style="text-decoration:none;">退出登陆</a>
+  
 		<div id="main">
 			<div id="left"><img src="img/hitlib.png"/>
 				<div id="title">
@@ -54,5 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </div>
 		</div>
 		<div id="hwj727"><p style="color:#FFFFFF">Copyright © 2014 软工坊 All Rights Reserved</p></div>
+		<a id="nlh" href='<s:url action="user_exit"></s:url>' style="text-decoration:none;">退出登陆</a>
   </body>
 </html>

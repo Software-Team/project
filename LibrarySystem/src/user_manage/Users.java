@@ -101,8 +101,8 @@ public class Users extends ActionSupport
 		sql = "delete from users where UserID='"+UserID+"'";
 		statement.executeUpdate(sql);
 		
-		sql = "drop table note"+UserID;
-		statement.executeUpdate(sql);
+//		sql = "drop table note"+UserID;
+//		statement.executeUpdate(sql);
 		
 		sql = "select * from users";
 		// 执行SQL语句并返回结果集
@@ -123,9 +123,6 @@ public class Users extends ActionSupport
 		if (Result.next() == false)
 		{
 			sql = "insert into users values ('"+UserID+"','"+UserName+"','"+UserPassword+"')";
-			statement.executeUpdate(sql);
-			//查询数据
-			sql = "CREATE TABLE `note"+UserID+"` (`ISBN` varchar(20) NOT NULL,`Title` varchar(50) DEFAULT NULL,`OutTime` date DEFAULT NULL,`Expiration` date DEFAULT NULL,`Num` int(11) DEFAULT NULL,PRIMARY KEY (`ISBN`)) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 			statement.executeUpdate(sql);
 		}
 		else
@@ -161,7 +158,7 @@ public class Users extends ActionSupport
 			UserPassword = Result.getString("UserPassword");
 		}
 		//查询数据
-		sql = "select * from note"+UserID+" order by `OutTime`";
+		sql = "select * from note where UserID = '"+UserID+"' order by `OutTime`";
 		notedetails = new ArrayList<NoteDetail>();	
 		// 执行SQL语句并返回结果集
 		Result = statement.executeQuery(sql);
@@ -171,6 +168,7 @@ public class Users extends ActionSupport
 			NoteDetail notedetail = new NoteDetail();
 			
 			notedetail.setISBN(Result.getString("ISBN"));
+			notedetail.setUserID(Result.getString("UserID"));
 			notedetail.setTitle(Result.getString("Title"));
 			notedetail.setOutTime(df.format(Result.getDate("OutTime")));
 			notedetail.setExpiration(df.format(Result.getDate("Expiration")));
@@ -262,7 +260,7 @@ public class Users extends ActionSupport
 		sql = "update `bookdb`.`books` SET `Status`='在馆' WHERE `ISBN`='"+ISBN+"'";
 		statement.executeUpdate(sql);
 		
-		sql = "delete from note"+UserID+" where ISBN='"+ISBN+"'";
+		sql = "delete from note where ISBN='"+ISBN+"'";
 		statement.executeUpdate(sql);
 		GetDetail();
 		return "return_success";
@@ -466,6 +464,7 @@ class UserDetail
 class NoteDetail
 {
 	private String ISBN;
+	private String UserID;
 	private String Title;
 	private String OutTime;
 	private String Expiration;
@@ -475,6 +474,12 @@ class NoteDetail
 	}
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
+	}
+	public String getUserID() {
+		return UserID;
+	}
+	public void setUserID(String userID) {
+		UserID = userID;
 	}
 	public String getTitle() {
 		return Title;

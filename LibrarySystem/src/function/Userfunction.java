@@ -67,6 +67,9 @@ public class Userfunction extends ActionSupport
 	private String UserName;
 	private String UserPassword;
 	
+	private String OutTime_hwj;
+	private String Expiration_hwj;
+	
 	private Date OutTime;
 	private Date Expiration;
 	private int Num; 
@@ -160,8 +163,8 @@ public class Userfunction extends ActionSupport
 			sql = "insert into users values ('"+UserID+"','"+UserName+"','"+UserPassword+"')";
 			statement.executeUpdate(sql);
 			//查询数据
-			sql = "CREATE TABLE `note"+UserID+"` (`ISBN` varchar(20) NOT NULL,`Title` varchar(50) DEFAULT NULL,`OutTime` date DEFAULT NULL,`Expiration` date DEFAULT NULL,`Num` int(11) DEFAULT NULL,PRIMARY KEY (`ISBN`)) ENGINE=InnoDB DEFAULT CHARSET=utf8";
-			statement.executeUpdate(sql);
+//			sql = "CREATE TABLE `note"+UserID+"` (`ISBN` varchar(20) NOT NULL,`Title` varchar(50) DEFAULT NULL,`OutTime` date DEFAULT NULL,`Expiration` date DEFAULT NULL,`Num` int(11) DEFAULT NULL,PRIMARY KEY (`ISBN`)) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+//			statement.executeUpdate(sql);
 			// 关闭结果集
 			UserResult.close();
 			// 关闭连接
@@ -251,7 +254,7 @@ public class Userfunction extends ActionSupport
 			OutTime_temp = date.format(new Date());
 			Expiration_temp = date.format(new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000L));
 			Num = 0;
-			sql = "insert into note"+User+" values ('"+ISBN+"','"+Title+"','"+OutTime_temp+"','"+Expiration_temp+"','"+Num+"')";
+			sql = "insert into note values ('"+ISBN+"','"+User+"','"+Title+"','"+OutTime_temp+"','"+Expiration_temp+"','"+Num+"')";
 			statement.executeUpdate(sql);
 			sql = "update `bookdb`.`books` SET `Status`='借出' WHERE `ISBN`='"+ISBN+"'";
 			statement.executeUpdate(sql);
@@ -299,7 +302,7 @@ public class Userfunction extends ActionSupport
 		statement.executeUpdate(sql);
 		book_tag = "推荐成功";
 		//查询数据
-		sql = "select * from note"+User+" order by `OutTime`";
+		sql = "select * from note where UserID = '"+User+"' order by `OutTime`";
 		NoteRefresh(sql,connection,statement);
 		
 		return "book_Love_success";
@@ -313,7 +316,7 @@ public class Userfunction extends ActionSupport
 		Statement statement = connection.createStatement();
 		
 		//查询数据
-		sql = "select * from note"+User+" order by `OutTime`";
+		sql = "select * from note where UserID = '"+User+"' order by `OutTime`";
 		NoteRefresh(sql,connection,statement);
 		return "display_borrownote_success";
 	}
@@ -326,7 +329,7 @@ public class Userfunction extends ActionSupport
 		// statement用来执行SQL语句
 		Statement statement = connection.createStatement();
 		
-		sql = "select * from note"+User+" where ISBN = '"+ISBN+"'";
+		sql = "select * from note where ISBN = '"+ISBN+"'";
 		Result = statement.executeQuery(sql);
 		while(Result.next()) 
 		{
@@ -339,12 +342,12 @@ public class Userfunction extends ActionSupport
 		{
 			String Expiration_temp;
 			Expiration_temp = date.format(new Date(Expiration.getTime() + 30 * 24 * 60 * 60 * 1000L));
-			sql = "update `bookdb`.`note"+User+"` SET `Num`='1',`Expiration`='"+Expiration_temp+"' WHERE `ISBN`='"+ISBN+"'";
+			sql = "update `bookdb`.`note` SET `Num`='1',`Expiration`='"+Expiration_temp+"' WHERE `ISBN`='"+ISBN+"'";
 			statement.executeUpdate(sql);
 			book_tag = "续借成功！";
 			
 			//查询数据
-			sql = "select * from note"+User+" order by `OutTime`";
+			sql = "select * from note where UserID = '"+User+"' order by `OutTime`";
 			NoteRefresh(sql,connection,statement);
 			return "book_borrowagain_success";
 		}
@@ -353,7 +356,7 @@ public class Userfunction extends ActionSupport
 			System.out.println("已到达最大续借次数！");
 			book_tag = "续借失败，已到达最大续借次数！";
 			//查询数据
-			sql = "select * from note"+User+" order by `OutTime`";
+			sql = "select * from note where UserID = '"+User+"' order by `OutTime`";
 			NoteRefresh(sql,connection,statement);
 			return "book_borrowagain_failure";
 		}
@@ -432,6 +435,27 @@ public class Userfunction extends ActionSupport
 			Place = Result.getString("Place");
 			Love = Result.getInt("Love");
 		}
+		//查询数据
+		sql = "select * from note where ISBN = '"+ISBN+"'";
+		// 执行SQL语句并返回结果集
+		Result = statement.executeQuery(sql);
+		if(Result.next()==false)
+		{
+			UserID = "-";
+			OutTime_hwj = "-";
+			Expiration_hwj = "-";
+		}
+		else
+		{
+			// 输出结果	
+			ISBN = Result.getString("ISBN");
+			UserID = Result.getString("UserID");
+			Title = Result.getString("Title");
+			OutTime_hwj = df.format(Result.getDate("OutTime"));
+			Expiration_hwj = df.format(Result.getDate("Expiration"));
+			Num = Result.getInt("Num");
+		}
+				
 		// 关闭结果集
 		Result.close();
 		// 关闭连接
@@ -517,6 +541,7 @@ public class Userfunction extends ActionSupport
 			NoteDetail notedetail = new NoteDetail();
 			
 			notedetail.setISBN(Result.getString("ISBN"));
+			notedetail.setUserID(Result.getString("UserID"));
 			notedetail.setTitle(Result.getString("Title"));
 			notedetail.setOutTime(df.format(Result.getDate("OutTime")));
 			notedetail.setExpiration(df.format(Result.getDate("Expiration")));
@@ -975,7 +1000,22 @@ public class Userfunction extends ActionSupport
 	public void setPage_tag(int page_tag) {
 		this.page_tag = page_tag;
 	}
+	
+	public String getOutTime_hwj() {
+		return OutTime_hwj;
+	}
 
+	public void setOutTime_hwj(String outTime_hwj) {
+		OutTime_hwj = outTime_hwj;
+	}
+
+	public String getExpiration_hwj() {
+		return Expiration_hwj;
+	}
+
+	public void setExpiration_hwj(String expiration_hwj) {
+		Expiration_hwj = expiration_hwj;
+	}
 }
 
 class UserBookDetail
@@ -1111,6 +1151,7 @@ class UserDetail
 class NoteDetail
 {
 	private String ISBN;
+	private String UserID;
 	private String Title;
 	private String OutTime;
 	private String Expiration;
@@ -1120,6 +1161,12 @@ class NoteDetail
 	}
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
+	}
+	public String getUserID() {
+		return UserID;
+	}
+	public void setUserID(String userID) {
+		UserID = userID;
 	}
 	public String getTitle() {
 		return Title;

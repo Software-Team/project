@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<br/>
 		<div id="AdminLogin_pic"><a href="javascript:void(0);" onclick="Show_AdminLogin(AdminLogin_input,UserLogin_input,UserRegist_input,UserRegist_pic)"><img src="img/admin.png"/></a></div>
 	  	<div id="UserLogin_pic"><a href="javascript:void(0);" onclick="Show_UserLogin(AdminLogin_input,UserLogin_input,UserRegist_input,UserRegist_pic)"><img src="img/student.png"/></a></div>
-	  	<div id="UserRegist_pic" style="display: block;"><a href="javascript:void(0);" onclick="Show_UserRegist(AdminLogin_input,UserLogin_input,UserRegist_input,UserRegist_pic)" style="text-decoration:none;">用户注册</a></div>
+	  	<div id="UserRegist_pic" style="display: block;"><a href="javascript:void(0);" onclick="Show_UserRegist(AdminLogin_input,UserLogin_input,UserRegist_input,UserRegist_pic)" style="text-decoration:none;color:#0000CD">用户注册</a></div>
 	  	<div id="Admin">管理员登陆</div>
 	  	<div id="User">用户登录</div>
 	</div>

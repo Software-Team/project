@@ -100,7 +100,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <td align="center"><input type="button" name="删除" id="删除" value="删除" onclick="warn('<s:property value="ISBN"/>')" /></td>
 		    </tr>    
 	    </table>
-    	
+    	<br/>
+    	<h3>借阅信息</h3>
+	    <table border="1" style="font-size:18px">
+		    <tr style="background-color:#CD853F;">
+		    	<td align="center" style="word-break:break-all;width:150px">ISBN</td>
+		    	<td align="center" >书名</td>
+		    	<td align="center" style="word-break:break-all;width:150px">读者账号</td>
+		    	<td align="center" style="word-break:break-all;width:100px">借出日期</td>
+		    	<td align="center" style="word-break:break-all;width:100px">归还日期</td>
+		    	<td align="center" style="word-break:break-all;width:80px">续借次数</td>
+		   	</tr>
+		    <tr>
+		        <td align="center"><s:property value="ISBN" /></td>
+		        <td align="center"><s:property value="Title"/></td>
+		        <td align="center"><s:property value="UserID"/></td>
+		        <td align="center"><s:property value="OutTime"/></td>
+		        <td align="center"><s:property value="Expiration"/></td>
+		        <td align="center"><s:property value="Num"/></td>
+		    </tr>    
+	    </table>
     	<br/>
     	<br/>
     	<input type="button" name="返回" value="返回" onclick="chose('<s:property value="page_tag"/>')" />
