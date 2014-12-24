@@ -267,7 +267,10 @@ public class Userfunction extends ActionSupport
 		}
 		else
 		{
-			book_tag = "预借失败，书籍已借出或已达到最大可借数目！";
+			if(Book_Total >= 10)
+				book_tag = "预借失败，已达到最大可借数目！";
+			else
+				book_tag = "预借失败，书籍已借出";
 			if(Page == 0)
 				sql = "select * from books order by `RegisterDate` desc";
 			else

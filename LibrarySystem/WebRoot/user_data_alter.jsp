@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br/>
 	  	<br/>
 	    <s:form action="user_data_alter">
-			<s:textfield name="UserID" label="账户" readonly="true" style="color:#C4C4C4;"/>
+			<s:textfield name="UserID" label="账户" readonly="true" style="color:#969696;"/>
 			<s:textfield name="UserName" label="书名"/>
 			<s:textfield name="UserPassword" label="密码"/>
 			<s:submit value="确认修改" align="right"/>

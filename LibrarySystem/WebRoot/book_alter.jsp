@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <center>
     <s:form action="book_alter">
     	<h3>书籍信息修改</h3>
-		<s:textfield name="ISBN" label="ISBN" readonly="true" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+		<s:textfield name="ISBN" label="ISBN" readonly="true" style="background-color:transparent;border-color: #8B7500;border-width: thin;color:#969696;"/>
 		<s:textfield name="Title" label="书名" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="AuthorName" label="作者" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="AuthorCountry" label="国籍" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
