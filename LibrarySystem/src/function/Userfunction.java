@@ -244,7 +244,7 @@ public class Userfunction extends ActionSupport
 			Status = Result.getString("Status");
 		}
 		
-		Result = statement.executeQuery("SELECT COUNT(*) FROM note"+User);
+		Result = statement.executeQuery("SELECT COUNT(*) FROM note where UserID = '"+User+"'");
 		while(Result.next())
 		{
 			Book_Total =  Result.getInt("COUNT(*)");

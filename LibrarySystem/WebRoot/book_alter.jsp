@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<s:textfield name="AuthorName" label="作者" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="AuthorCountry" label="国籍" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="Publisher" label="出版社" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
-		<s:textfield name="PublishDate" label="出版日期" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
+		<s:textfield name="PublishDate" label="出版年份" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="RegisterDate" label="上架日期" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="Type" label="类别" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>
 		<s:textfield name="PageNum" label="页码" style="background-color:transparent;border-color: #8B7500;border-width: thin;"/>

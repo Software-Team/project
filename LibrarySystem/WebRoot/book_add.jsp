@@ -40,14 +40,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <center>
     <br/>
-    	<h3>请输入书籍与作者信息</h3>
-    	<s:form action="book_add">
+    <h3>请输入书籍与作者信息</h3>
+    <s:form action="book_add">
 		<s:textfield name="ISBN" label="ISBN" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="Title" label="书名" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="AuthorName" label="作者" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="AuthorCountry" label="国籍" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="Publisher" label="出版社" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
-		<s:textfield name="PublishDate" label="出版日期" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
+		<s:textfield name="PublishDate" label="出版年份" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="RegisterDate" label="上架日期" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="Type" label="类别" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
 		<s:textfield name="PageNum" label="页码" cssStyle="background-color:transparent;border-color: #8B7500;border-width: thin;width:150px"/>
