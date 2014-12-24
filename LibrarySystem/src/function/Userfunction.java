@@ -224,6 +224,7 @@ public class Userfunction extends ActionSupport
 	public String BookReserve() throws SQLException, ParseException
 	{
 		String sql;
+		int Book_Total = 0;
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		String OutTime_temp;
 		String Expiration_temp;
@@ -240,7 +241,12 @@ public class Userfunction extends ActionSupport
 			Status = Result.getString("Status");
 		}
 		
-		if (Status.equals("在馆"))
+		Result = statement.executeQuery("SELECT COUNT(*) FROM note"+User);
+		while(Result.next())
+		{
+			Book_Total =  Result.getInt("COUNT(*)");
+		}
+		if (Status.equals("在馆") && Book_Total < 10)
 		{
 			OutTime_temp = date.format(new Date());
 			Expiration_temp = date.format(new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000L));
@@ -257,11 +263,11 @@ public class Userfunction extends ActionSupport
 			//刷新书籍列表
 			Refresh(sql,connection,statement);
 			return "book_reserve_success";
+			
 		}
 		else
 		{
-			System.out.println("书籍已借出！");
-			book_tag = "预借失败，书籍已借出！";
+			book_tag = "预借失败，书籍已借出或已达到最大可借数目！";
 			if(Page == 0)
 				sql = "select * from books order by `RegisterDate` desc";
 			else
@@ -286,7 +292,7 @@ public class Userfunction extends ActionSupport
 			Love = Result.getInt("Love");
 		}
 		Love++;
-		sql = "update `libdb`.`books` SET `Love`='"+Love+"' WHERE `ISBN`='"+ISBN+"'";
+		sql = "update `bookdb`.`books` SET `Love`='"+Love+"' WHERE `ISBN`='"+ISBN+"'";
 		statement.executeUpdate(sql);
 		book_tag = "推荐成功";
 		//查询数据
